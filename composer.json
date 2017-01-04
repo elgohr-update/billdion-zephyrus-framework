@@ -1,4 +1,14 @@
 {
+  "name": "zephyrus/framework",
+  "description": "Basic framework for the Zephyrus core",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Tucker",
+      "email": "davidt2003@msn.com"
+    }
+  ],
+  "minimum-stability": "dev",
   "require": {
     "zephyrus/zephyrus": "^0.8.0"
   },

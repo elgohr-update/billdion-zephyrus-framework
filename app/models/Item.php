@@ -1,5 +1,13 @@
 <?php namespace Models;
 
+/**
+ * Example model class. The philosophy is to create normal classes with desired
+ * features and use brokers to instantiate object from database or any other
+ * CRUD operations.
+ *
+ * This class refers to a really simple data class representing a shop item
+ * identified by an id (table primary key), a name and a price.
+ */
 class Item implements \JsonSerializable
 {
     /**
@@ -20,7 +28,7 @@ class Item implements \JsonSerializable
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -28,7 +36,7 @@ class Item implements \JsonSerializable
     /**
      * @param int $id
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -36,7 +44,7 @@ class Item implements \JsonSerializable
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -44,15 +52,15 @@ class Item implements \JsonSerializable
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
     /**
-     * @return float
+     * @return double
      */
-    public function getPrice()
+    public function getPrice(): double
     {
         return $this->price;
     }
@@ -60,11 +68,16 @@ class Item implements \JsonSerializable
     /**
      * @param float $price
      */
-    public function setPrice($price)
+    public function setPrice(float $price)
     {
         $this->price = $price;
     }
 
+    /**
+     * Called automatically when using json_encode on an object.
+     *
+     * @return array
+     */
     function jsonSerialize()
     {
         return [

@@ -6,6 +6,8 @@ use Zephyrus\Security\IntrusionDetection;
 use Zephyrus\Security\SecureHeader;
 use Zephyrus\Application\Configuration;
 
+include('acl.php');
+
 if (Configuration::getSecurityConfiguration('ids_enabled')) {
     $ids = IntrusionDetection::getInstance();
     $ids->onDetection(function($data) {

@@ -11,4 +11,3 @@ include((Configuration::getApplicationConfiguration('env') == 'dev') ? 'handlers
 Bootstrap::start();
 
 include('security.php');
-include('acl.php');

@@ -7,13 +7,12 @@ html
     #container
       if flash.success
         div.success=flash.success
-      h2 Example #{format('date', '2016-01-01')}
+      h2 Example #{format('date', currentDate)}
       p#time
 
       script(type='text/javascript', nonce=nonce()).
-        document.write("test");
         window.onload = function() {
-            var source = new EventSource('/sse');
+            var source = new EventSource('/example/sse');
             source.addEventListener('message', function (e) {
                 document.getElementById("time").innerHTML = e.data;
             }, false);

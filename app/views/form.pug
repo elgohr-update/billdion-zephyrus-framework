@@ -13,12 +13,9 @@ html
               li #{err}
 
       h2 Add new item
-      form(action="/insert", method="post", enctype="multipart/form-data")
-        input(type="text", placeholder="Name", name="name", value=val('name', 'test'))
+      form(action="/insert", method="post")
+        input(type="text", placeholder="Name", name="name", value=val('name'))
         br
         input(type="text", placeholder="Price", name="price", value=val('price'))
         br
-        input(type="file", name="profile[]", multiple="true")
-        br
         button(type="submit") Send
-      p note max upload: #{format('filesize', uploadSize)}

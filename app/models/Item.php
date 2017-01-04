@@ -21,7 +21,7 @@ class Item implements \JsonSerializable
     private $name;
 
     /**
-     * @var double
+     * @var float
      */
     private $price;
 
@@ -58,9 +58,9 @@ class Item implements \JsonSerializable
     }
 
     /**
-     * @return double
+     * @return float
      */
-    public function getPrice(): double
+    public function getPrice(): float
     {
         return $this->price;
     }

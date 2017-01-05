@@ -1,7 +1,17 @@
-![Zephyrus](https://cloud.githubusercontent.com/assets/4491532/21475508/82430ca8-cafa-11e6-8310-0683459d5f21.png)
+<p align="center">
+    <img align="center" src="https://cloud.githubusercontent.com/assets/4491532/21667795/e69dec6e-d2c9-11e6-8563-133291489ed3.png" width="45%">           
+</p>
 
-> Framework PHP simple et léger.
+---
+<p align="center"><i>Framework PHP simple et léger</i></p>
 
+---
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![GitHub release](https://img.shields.io/github/release/dadajuice/zephyrus-framework.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/dadajuice/zephyrus-framework.svg)]()
 [![Packagist](https://img.shields.io/packagist/l/zephyrus/framework.svg)]()

@@ -11,7 +11,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
 [![GitHub release](https://img.shields.io/github/release/dadajuice/zephyrus-framework.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/dadajuice/zephyrus-framework.svg)]()
 [![license](https://img.shields.io/github/license/dadajuice/zephyrus-framework.svg)]()

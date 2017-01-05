@@ -20,12 +20,12 @@
 # Installation
 Zephyrus nécessite PHP 7 et, présentement, supporte uniquement Apache comme serveur web (pour un autre type de serveur, il suffirait d’adapter les fichiers .htaccess). Le gestionnaire de dépendance [Composer](https://getcomposer.org/) est également requis. La structure résultante de l’installation contient plusieurs exemples pour faciliter les premiers pas.
 
-##### Option 1 : Installation depuis composer (recommandé)
+#### Option 1 : Installation depuis composer (recommandé)
 ```
 $ composer create-project zephyrus/framework nom_projet
 ```
 
-##### Option 2 : Depuis une archive
+#### Option 2 : Depuis une archive
 ```
 $ mkdir nom_projet
 $ cd nom_projet
@@ -34,7 +34,7 @@ $ tar -xvf v0.8.tar.gz --strip 1
 $ composer install
 ```
 
-##### Option 3 : Depuis les sources (version de développement)
+#### Option 3 : Depuis les sources (version de développement)
 ```
 $ git clone https://github.com/dadajuice/zephyrus-framework.git
 $ composer install  
@@ -42,7 +42,7 @@ $ composer install
 
 # Utilisation
 
-##### Exemple 1 : Affichage d'une page HTML simple
+#### Exemple 1 : Affichage d'une page HTML simple
 
 app/controllers/SampleController.php
 ```php
@@ -84,7 +84,7 @@ html
       h2=message
 ```
 
-##### Exemple 2 : Traitement d'un formulaire en POST
+#### Exemple 2 : Traitement d'un formulaire en POST
 app/controllers/SampleController.php
 ```php
 <?php namespace Controllers;
@@ -161,13 +161,13 @@ html
 
 # Contribution
 
-##### Sécurité
+#### Sécurité
 Veuillez communiquer en privé pour tout problème pouvant affecter la sécurité des applications créées avec ce framework.
 
-##### Bogues et fonctionnalités
+#### Bogues et fonctionnalités
 Pour rapporter des bogues, demander l’ajout de nouvelles fonctionnalités ou faire des recommandations, n’hésitez pas à utiliser l’[outil de gestion des problèmes](https://github.com/dadajuice/zephyrus-framework/issues) de GitHub.
 
-##### Développement
+#### Développement
 Vous pouvez contribuer au développement de Zephyrus en soumettant des [PRs](https://github.com/dadajuice/zephyrus-framework/pulls).
 
 # License

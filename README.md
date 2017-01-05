@@ -171,4 +171,4 @@ Pour rapporter des bogues, demander l’ajout de nouvelles fonctionnalités ou f
 Vous pouvez contribuer au développement de Zephyrus en soumettant des [PRs](https://github.com/dadajuice/zephyrus-framework/pulls).
 
 # License
-MIT (c) dadajuice
+MIT (c) David Tucker

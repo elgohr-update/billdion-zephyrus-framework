@@ -4,7 +4,7 @@
  * This file is automatically included for each request and should only defined
  * security settings for the application.
  */
-use Zephyrus\Network\Request;
+use Zephyrus\Network\RequestFactory;
 use Zephyrus\Security\ContentSecurityPolicy;
 use Zephyrus\Security\IntrusionDetection;
 use Zephyrus\Security\SecureHeader;
@@ -51,7 +51,7 @@ $csp->setImageSources([
     'data:', 'https://csi.gstatic.com', 'https://maps.gstatic.com',
     'https://maps.googleapis.com', 'https://www.google-analytics.com',
     'https://www.facebook.com']);
-$csp->setBaseUri([Request::getBaseUrl()]);
+$csp->setBaseUri([RequestFactory::create()->getBaseUrl()]);
 
 /**
  * The generateNonce() method initialize the need to use a nonce to identify

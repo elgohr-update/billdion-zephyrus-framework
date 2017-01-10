@@ -5,11 +5,10 @@ use Models\Item;
 use Zephyrus\Application\Controller;
 use Zephyrus\Application\Flash;
 use Zephyrus\Application\Form;
-use Zephyrus\Application\Routable;
 use Zephyrus\Network\Router;
 use Zephyrus\Utilities\Validator;
 
-class ExampleController extends Controller implements Routable
+class ExampleController extends Controller
 {
     /**
      * Defines all the routes supported by this controller associated with
@@ -49,7 +48,7 @@ class ExampleController extends Controller implements Routable
          * Creates a form instance automatically loaded with the request data
          * ready to be validated.
          */
-        $form = new Form();
+        $form = $this->buildForm();
 
         /**
          * Add all the needed validation rules for the specified form. This
@@ -93,7 +92,7 @@ class ExampleController extends Controller implements Routable
          */
         $item = new Item();
         $item->setName($form->getValue("name"));
-        $item->setPrice($form->getValue("price"));
+        $item->setPrice(str_replace(',', '.', $form->getValue("price")));
         $broker = new ItemBroker();
         $broker->insert($item);
         Flash::success("Ajout de l'article #" . $item->getId() . " avec succès");

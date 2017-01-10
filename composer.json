@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "zephyrus/zephyrus": "^0.8.0"
+    "zephyrus/zephyrus": "^0.9.0"
   },
   "autoload": {
     "psr-4": {

@@ -16,5 +16,11 @@
       "Models\\": "app/models",
       "Controllers\\": "app/controllers"
     }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "rm LICENSE",
+      "rm README.md"
+    ]
   }
 }

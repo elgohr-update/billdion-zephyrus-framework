@@ -1,6 +1,7 @@
 <?php
 
-use Zephyrus\Network\Router;
+use Zephyrus\Network\RequestFactory;
+use Zephyrus\Security\Router;
 use Zephyrus\Application\Bootstrap;
 
 $router = new Router();
@@ -9,4 +10,4 @@ foreach (recursiveGlob('../app/routes/*.php') as $file) {
 }
 
 Bootstrap::initializeRoutableControllers($router);
-$router->run();
+$router->run(RequestFactory::create());

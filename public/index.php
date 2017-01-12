@@ -10,4 +10,4 @@ foreach (recursiveGlob('../app/routes/*.php') as $file) {
 }
 
 Bootstrap::initializeRoutableControllers($router);
-$router->run(RequestFactory::create());
+$router->run(RequestFactory::read());

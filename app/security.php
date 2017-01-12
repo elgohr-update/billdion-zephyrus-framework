@@ -51,15 +51,7 @@ $csp->setImageSources([
     'data:', 'https://csi.gstatic.com', 'https://maps.gstatic.com',
     'https://maps.googleapis.com', 'https://www.google-analytics.com',
     'https://www.facebook.com']);
-$csp->setBaseUri([RequestFactory::create()->getBaseUrl()]);
-
-/**
- * The generateNonce() method initialize the need to use a nonce to identify
- * javascript in html. This will automatically correctly adds the nonce in the
- * CSP headers. Basically, if the rest of the script CSP header is correctly
- * crafted, any javascript included in HTML needs this nonce to be executed.
- */
-$csp::generateNonce();
+$csp->setBaseUri([RequestFactory::read()->getBaseUrl()]);
 
 /**
  * The SecureHeader class is the instance that will actually sent all the

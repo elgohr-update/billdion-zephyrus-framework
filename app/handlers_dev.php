@@ -16,26 +16,26 @@ use Zephyrus\Exceptions\DatabaseException;
 
 $errorHandler = ErrorHandler::getInstance();
 
-$errorHandler->exception(function(Error $e) {
+$errorHandler->exception(function (Error $e) {
     die($e->getMessage() . ' : ' . $e->getTraceAsString());
 });
 
-$errorHandler->exception(function(Exception $e) {
+$errorHandler->exception(function (Exception $e) {
     die($e->getMessage() . ' : ' . $e->getTraceAsString());
 });
 
-$errorHandler->exception(function(DatabaseException $e) {
+$errorHandler->exception(function (DatabaseException $e) {
     die($e->getMessage() . ' : ' . $e->getTraceAsString());
 });
 
-$errorHandler->exception(function(RouteNotFoundException $e) {
+$errorHandler->exception(function (RouteNotFoundException $e) {
     die($e->getMessage() . ' : ' . $e->getTraceAsString());
 });
 
-$errorHandler->exception(function(UnauthorizedAccessException $e) {
+$errorHandler->exception(function (UnauthorizedAccessException $e) {
     die($e->getMessage() . ' : ' . $e->getTraceAsString());
 });
 
-$errorHandler->exception(function(InvalidCsrfException $e) {
+$errorHandler->exception(function (InvalidCsrfException $e) {
     die($e->getMessage() . ' : ' . $e->getTraceAsString());
 });

@@ -8,6 +8,8 @@
  * error handling as you see fit (redirection, disconnection, messages, ...).
  */
 use Zephyrus\Application\ErrorHandler;
+use Zephyrus\Application\Flash;
+use Zephyrus\Application\Session;
 use Zephyrus\Exceptions\RouteNotFoundException;
 use Zephyrus\Exceptions\UnauthorizedAccessException;
 use Zephyrus\Exceptions\InvalidCsrfException;
@@ -16,26 +18,28 @@ use Zephyrus\Network\Response;
 
 $errorHandler = ErrorHandler::getInstance();
 
-$errorHandler->exception(function(Error $e) {
-    Response::abortInternalError();
+$errorHandler->exception(function (Error $e) {
+    //TODO: handle any
 });
 
-$errorHandler->exception(function(Exception $e) {
-    Response::abortInternalError();
+$errorHandler->exception(function (Exception $e) {
+    //TODO: code to handle any type of Exceptions if not specify elsewhere
 });
 
-$errorHandler->exception(function(DatabaseException $e) {
-    Response::abortInternalError();
+$errorHandler->exception(function (DatabaseException $e) {
+    //TODO: code to handle any type of database errors
 });
 
-$errorHandler->exception(function(RouteNotFoundException $e) {
-    Response::abortNotFound();
+$errorHandler->exception(function (RouteNotFoundException $e) {
+    //TODO: code to handle when the route does not exist
 });
 
 $errorHandler->exception(function(UnauthorizedAccessException $e) {
-    Response::abortForbidden();
+    Session::getInstance()->restart();
+    Flash::error("Vous n'avez pas les droits requis pour accéder à la ressource spécifiée");
+    redirect('/');
 });
 
-$errorHandler->exception(function(InvalidCsrfException $e) {
-    Response::abortInternalError();
+$errorHandler->exception(function (InvalidCsrfException $e) {
+    //TODO: code to handle when a CSRF token check fails
 });

@@ -11,8 +11,7 @@
         convertWarningsToExceptions="true">
     <testsuites>
         <testsuite name="application">
-            <directory>tests/controllers</directory>
-            <directory>tests/models</directory>
+            <directory>tests/Models</directory>
         </testsuite>
     </testsuites>
     <filter>

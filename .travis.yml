@@ -1,0 +1,20 @@
+language: php
+sudo: required
+php:
+  - 7.1
+
+before_script:
+  - sudo locale-gen --no-archive fr_CA.UTF-8
+  - locale -a
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction
+
+script:
+  - vendor/bin/phpunit --verbose --stderr --coverage-clover=tests/coverage/results.xml
+
+after_success:
+  - vendor/bin/test-reporter --coverage-report tests/coverage/results.xml
+
+addons:
+  code_climate:
+    repo_token: YOUR_REPO

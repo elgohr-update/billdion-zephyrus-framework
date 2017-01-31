@@ -12,7 +12,7 @@ use Zephyrus\Security\Authorization;
  * The authorization class can be accessed anywhere in the application using
  * the getInstance method.
  */
-$auth = Authorization::getInstance();
+$auth = $router->getAuthorization();
 
 /**
  * The mode specifies the default behavior when no rule has been defined for a

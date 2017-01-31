@@ -14,9 +14,8 @@ use Zephyrus\Exceptions\RouteNotFoundException;
 use Zephyrus\Exceptions\UnauthorizedAccessException;
 use Zephyrus\Exceptions\InvalidCsrfException;
 use Zephyrus\Exceptions\DatabaseException;
-use Zephyrus\Network\Response;
 
-$errorHandler = ErrorHandler::getInstance();
+$errorHandler = new ErrorHandler();
 
 $errorHandler->exception(function (Error $e) {
     //TODO: handle any
@@ -37,7 +36,6 @@ $errorHandler->exception(function (RouteNotFoundException $e) {
 $errorHandler->exception(function(UnauthorizedAccessException $e) {
     Session::getInstance()->restart();
     Flash::error("Vous n'avez pas les droits requis pour accéder à la ressource spécifiée");
-    redirect('/');
 });
 
 $errorHandler->exception(function (InvalidCsrfException $e) {

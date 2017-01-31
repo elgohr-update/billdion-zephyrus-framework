@@ -7,9 +7,8 @@
 use Zephyrus\Network\RequestFactory;
 use Zephyrus\Security\ContentSecurityPolicy;
 use Zephyrus\Security\IntrusionDetection;
-use Zephyrus\Security\SecureHeader;
 use Zephyrus\Application\Configuration;
-use Zephyrus\Security\SystemLog;
+use Zephyrus\Utilities\SystemLog;
 
 /**
  * Include the authorization requirements and rules.
@@ -55,5 +54,4 @@ $csp->setBaseUri([RequestFactory::read()->getBaseUrl()]);
  * headers concerning security including the CSP. Other headers includes policy
  * concerning iframe integration, strict transport security and xss protection.
  */
-$header = SecureHeader::getInstance();
-$header->setContentSecurityPolicy($csp);
+$router->getSecureHeader()->setContentSecurityPolicy($csp);

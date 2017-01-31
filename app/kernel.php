@@ -13,6 +13,9 @@ require ROOT_DIR . '/vendor/autoload.php';
 
 use Zephyrus\Application\Configuration;
 use Zephyrus\Application\Bootstrap;
+use Zephyrus\Security\Router;
+
+$router = new Router();
 
 include(Bootstrap::getHelperFunctionsPath());
 include((Configuration::getApplicationConfiguration('env') == 'dev') ? 'handlers_dev.php' : 'handlers_prod.php');

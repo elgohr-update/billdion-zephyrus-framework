@@ -15,8 +15,6 @@ AddDefaultCharset UTF-8
 DefaultLanguage fr-CA
 
 # --------------------------- SECURITY SETTINGS ----------------------------- #
-php_admin_value disable_functions "exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,show_source"
-
 # Maximum allowed upload size
 php_value post_max_size 20M
 php_value upload_max_filesize 20M

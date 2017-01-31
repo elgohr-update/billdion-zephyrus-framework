@@ -3,3 +3,4 @@ composer.phar
 /vendor/
 /logs/*
 composer.lock
+/tests/coverage

@@ -18,7 +18,9 @@ use Zephyrus\Security\Router;
 $router = new Router();
 
 include(Bootstrap::getHelperFunctionsPath());
-include((Configuration::getApplicationConfiguration('env') == 'dev') ? 'handlers_dev.php' : 'handlers_prod.php');
+if (Configuration::getApplicationConfiguration('env') == 'prod') {
+    include('handlers.php');
+}
 Bootstrap::start();
 
 include('security.php');

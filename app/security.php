@@ -8,7 +8,6 @@ use Zephyrus\Network\RequestFactory;
 use Zephyrus\Security\ContentSecurityPolicy;
 use Zephyrus\Security\IntrusionDetection;
 use Zephyrus\Application\Configuration;
-use Zephyrus\Utilities\SystemLog;
 
 /**
  * Include the authorization requirements and rules.
@@ -28,7 +27,7 @@ if (Configuration::getSecurityConfiguration('ids_enabled')) {
     $ids = IntrusionDetection::getInstance();
     $ids->onDetection(function($data) {
         if ($data['impact'] >= 10) {
-            SystemLog::addSecurity('IDS Detection : ' . json_encode($data));
+            // Do something (logs, ...)
         }
     });
 }

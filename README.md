@@ -7,29 +7,28 @@
 
 ---
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;
-[![GitHub release](https://img.shields.io/github/release/dadajuice/zephyrus-framework.svg)]()
-[![GitHub issues](https://img.shields.io/github/issues/dadajuice/zephyrus-framework.svg)]()
-[![license](https://img.shields.io/github/license/dadajuice/zephyrus-framework.svg)]()
+[![GitHub release](https://img.shields.io/github/release/dadajuice/zephyrus.svg)]()
+[![Travis](https://img.shields.io/travis/dadajuice/zephyrus.svg)]()
+[![Code Climate](https://img.shields.io/codeclimate/github/dadajuice/zephyrus.svg)]()
+[![Code Climate](https://img.shields.io/codeclimate/coverage/github/dadajuice/zephyrus.svg)]()
+[![StyleCI](https://styleci.io/repos/77175312/shield?branch=master)](https://styleci.io/repos/77175312)
+[![GitHub issues](https://img.shields.io/github/issues/dadajuice/zephyrus.svg)]()
+[![license](https://img.shields.io/github/license/dadajuice/zephyrus.svg)]()
 
 # Fonctionnalités
 * Structure de projet simpliste
 * Routes avec mécanisme MVC
-* Préprocesseur HTML Pug intégré pour le rendu des vues
+* Préprocesseur HTML _[Pug](https://github.com/pug-php/pug)_ intégré pour le rendu des vues
 * Patron courtier intégré pour l’interaction avec une base de données
 * Mécanisme uniforme pour gérer les validations d’un formulaire
 * Mesures contre le détournement de session intégrées
 * Données de la session chiffrées sur le serveur
 * Protection automatique des formulaires contre les attaques CSRF
 * Mécanisme d’autorisation sur les routes
-* Détecteur d’intrusion intégré (expose)
+* Détecteur d’intrusion intégré (_[Expose](https://github.com/enygma/expose)_)
 * Manipulation simplifiée des en-têtes CSP
 * Configuration d’un projet simple et rapide
-* Plusieurs utilitaires rapides : cryptographie, pagination, transactions PayPal, validations, manipulation d’image, transport de messages, etc.
+* Plusieurs utilitaires rapides : cryptographie, pagination, validations, téléversements, gestionnaire d'erreurs, transport de messages, etc.
 
 # Installation
 Zephyrus nécessite PHP 7 et, présentement, supporte uniquement Apache comme serveur web (pour un autre type de serveur, il suffirait d’adapter les fichiers .htaccess). Le gestionnaire de dépendance [Composer](https://getcomposer.org/) est également requis. La structure résultante de l’installation contient plusieurs exemples pour faciliter les premiers pas.
@@ -43,8 +42,8 @@ $ composer create-project zephyrus/framework nom_projet
 ```
 $ mkdir nom_projet
 $ cd nom_projet
-$ wget https://github.com/dadajuice/zephyrus-framework/archive/v0.8.tar.gz
-$ tar -xvf v0.8.tar.gz --strip 1
+$ wget https://github.com/dadajuice/zephyrus-framework/archive/v0.9.9.2.tar.gz
+$ tar -xvf v0.9.9.2.tar.gz --strip 1
 $ composer install
 ```
 
@@ -63,15 +62,13 @@ app/controllers/SampleController.php
 <?php namespace Controllers;
 
 use Zephyrus\Application\Controller;
-use Zephyrus\Application\Routable;
-use Zephyrus\Network\Router;
 
-class SampleController extends Controller implements Routable
+class SampleController extends Controller
 {
-    public static function initializeRoutes(Router $router)
+    public function initializeRoutes()
     {
-        $router->get("/sample", self::bind("index"));
-        $router->get("/sample/{id}", self::bind("read"));
+        $this->get("/sample", "index");
+        $this->get("/sample/{id}", "read");
     }
 
     public function index()
@@ -106,17 +103,15 @@ app/controllers/SampleController.php
 use Zephyrus\Application\Controller;
 use Zephyrus\Application\Flash;
 use Zephyrus\Application\Form;
-use Zephyrus\Application\Routable;
-use Zephyrus\Network\Router;
 use Zephyrus\Utilities\Validator;
 
-class SampleController extends Controller implements Routable
+class SampleController extends Controller
 {
-    public static function initializeRoutes(Router $router)
+    public function initializeRoutes()
     {
-        $router->get("/sample", self::bind("index"));
-        $router->get("/sample/{id}", self::bind("read"));
-        $router->post("/sample", self::bind("insert"));
+        $this->get("/sample", "index");
+        $this->get("/sample/{id}", "read");
+        $this->post("/sample", "insert");
     }
 
     public function index()
@@ -131,7 +126,7 @@ class SampleController extends Controller implements Routable
 
     public function insert()
     {
-        $form = new Form();
+        $form = $this->buildForm();       
         $form->addRule('firstname', Validator::NOT_EMPTY, "Le prénom ne doit pas être vide");
         $form->addRule('lastname', Validator::NOT_EMPTY, "Le nom ne doit pas être vide");
         $form->addRule('email', Validator::NOT_EMPTY, "Le courriel ne doit pas être vide");
@@ -140,7 +135,7 @@ class SampleController extends Controller implements Routable
         if (!$form->verify()) {
             $messages = $form->getErrorMessages();
             Flash::error($messages);
-            redirect("/sample");
+            $this->response->redirect("/sample");
         }
 
         echo "Bravo !";

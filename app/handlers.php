@@ -16,25 +16,19 @@ use Zephyrus\Exceptions\DatabaseException;
 $errorHandler = new ErrorHandler();
 
 $errorHandler->exception(function (Error $e) {
-
 });
 
 $errorHandler->exception(function (Exception $e) {
-
 });
 
 $errorHandler->exception(function (DatabaseException $e) {
-
 });
 
 $errorHandler->exception(function (RouteNotFoundException $e) {
-
 });
 
 $errorHandler->exception(function(UnauthorizedAccessException $e) {
-
 });
 
 $errorHandler->exception(function (InvalidCsrfException $e) {
-
 });

@@ -21,8 +21,8 @@
                 <file>./app/kernel.php</file>
                 <file>./app/security.php</file>
                 <file>./app/acl.php</file>
-                <file>./app/handlers_dev.php</file>
-                <file>./app/handlers_prod.php</file>
+                <file>./app/handlers.php</file>
+                <directory>./app/Controllers</directory>
             </exclude>
         </whitelist>
     </filter>

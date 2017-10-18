@@ -3,6 +3,9 @@ sudo: required
 php:
   - 7.1
 
+env:
+  CODECLIMATE_REPO_TOKEN: YOUR_REPO
+
 before_script:
   - sudo locale-gen --no-archive fr_CA.UTF-8
   - locale -a

@@ -24,7 +24,12 @@ include('acl.php');
  * @see https://github.com/enygma/expose
  */
 if (Configuration::getSecurityConfiguration('ids_enabled')) {
-    $ids = IntrusionDetection::getInstance();
+    $ids = IntrusionDetection::getInstance(new class extends \Psr\Log\AbstractLogger {
+        public function log($level, $message, array $context = array())
+        {
+            // Register log somewhere ...
+        }
+    });
     $ids->onDetection(function($data) {
         if ($data['impact'] >= 10) {
             // Do something (logs, ...)

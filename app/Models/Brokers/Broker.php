@@ -12,13 +12,13 @@ abstract class Broker extends \Zephyrus\Database\Broker
         /*$this->applyConnectionVariables();*/
     }
 
-    public function selectSingle($query, $parameters = [], $allowedTags = "")
+    public function selectInstance($query, $parameters = [], $allowedTags = "")
     {
         $result = parent::selectSingle($query, $parameters, $allowedTags);
         return (!$result) ? null : $this->load($result);
     }
 
-    public function select($query, $parameters = [], $allowedTags = "")
+    public function selectInstances($query, $parameters = [], $allowedTags = "")
     {
         $results = [];
         foreach (parent::select($query, $parameters, $allowedTags) as $row) {

@@ -2,9 +2,13 @@
 
 use Models\Item;
 use Zephyrus\Application\Controller;
+use Zephyrus\Network\ContentType;
+use Zephyrus\Network\Response;
 
 class ExampleController extends Controller
 {
+    private $executionTime;
+
     /**
      * Defines all the routes supported by this controller associated with
      * inner methods.
@@ -13,6 +17,21 @@ class ExampleController extends Controller
     {
         $this->get("/", "index");
         $this->get("/items", "jsonTest");
+    }
+
+    public function before()
+    {
+        $this->executionTime = microtime(true);
+        return true;
+    }
+
+    public function after(?Response $response)
+    {
+        if (!is_null($response) && $response->getContentType() == ContentType::HTML) {
+            $timeZone = '<div id="execution">' . (microtime(true) - $this->executionTime) . '</div>';
+            $response->setContent($response->getContent() . $timeZone);
+        }
+        return $response;
     }
 
     /**

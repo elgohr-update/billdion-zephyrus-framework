@@ -1,7 +1,6 @@
 <?php namespace Controllers;
 
 use Models\Item;
-use Zephyrus\Application\Controller;
 
 class ExampleController extends Controller
 {

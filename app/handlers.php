@@ -27,8 +27,14 @@ $errorHandler->exception(function (DatabaseException $e) {
 $errorHandler->exception(function (RouteNotFoundException $e) {
 });
 
+// Its recommended to catch in security middleware
 $errorHandler->exception(function(UnauthorizedAccessException $e) {
 });
 
+// Its recommended to catch in security middleware
+$errorHandler->exception(function (InvalidCsrfException $e) {
+});
+
+// Its recommended to catch in security middleware
 $errorHandler->exception(function (InvalidCsrfException $e) {
 });

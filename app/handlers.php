@@ -9,8 +9,6 @@
  */
 use Zephyrus\Application\ErrorHandler;
 use Zephyrus\Exceptions\RouteNotFoundException;
-use Zephyrus\Exceptions\UnauthorizedAccessException;
-use Zephyrus\Exceptions\InvalidCsrfException;
 use Zephyrus\Exceptions\DatabaseException;
 
 $errorHandler = new ErrorHandler();
@@ -28,13 +26,13 @@ $errorHandler->exception(function (RouteNotFoundException $e) {
 });
 
 // Its recommended to catch in security middleware
-$errorHandler->exception(function(UnauthorizedAccessException $e) {
-});
+//$errorHandler->exception(function(UnauthorizedAccessException $e) {
+//});
 
 // Its recommended to catch in security middleware
-$errorHandler->exception(function (InvalidCsrfException $e) {
-});
+//$errorHandler->exception(function (InvalidCsrfException $e) {
+//});
 
 // Its recommended to catch in security middleware
-$errorHandler->exception(function (InvalidCsrfException $e) {
-});
+//$errorHandler->exception(function (InvalidCsrfException $e) {
+//});

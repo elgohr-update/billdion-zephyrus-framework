@@ -1,0 +1,24 @@
+//-
+  Example that uses bootstrap default styles to display messages provided using Flash methods. Able
+  to work with list of messages and single message. Compliant with standard messaging level (error,
+  success, warning, notice and info).
+mixin flash()
+  +flashMessage(flash.success, 'success')
+  +flashMessage(flash.error, 'danger')
+  +flashMessage(flash.warning, 'warning')
+  +flashMessage(flash.notice, 'notice')
+  +flashMessage(flash.info, 'info')
+
+mixin flashMessage(data, type)
+  if data
+    div.alert(class='alert-' + type)
+      if is_array(data)
+        if count(data) > 1
+          ul
+            each message in data
+              if message != ""
+                li!=message
+        else
+          !=data[0]
+      else
+        !=data

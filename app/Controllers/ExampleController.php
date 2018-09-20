@@ -2,7 +2,7 @@
 
 use Models\Item;
 
-class ExampleController extends Controller
+class ExampleController extends SecurityController
 {
     /**
      * Defines all the routes supported by this controller associated with

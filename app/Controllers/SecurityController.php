@@ -4,7 +4,7 @@ use Zephyrus\Exceptions\IntrusionDetectionException;
 use Zephyrus\Security\Authorization;
 use Zephyrus\Security\ContentSecurityPolicy;
 
-abstract class Controller extends \Zephyrus\Security\Controller
+abstract class SecurityController extends \Zephyrus\Security\Controller
 {
     public function before()
     {

@@ -22,3 +22,16 @@ mixin flashMessage(data, type)
           !=data[0]
       else
         !=data
+
+//-
+  Allows usage HTTP method besides GET and POST. Zephyrus verifies the existence of a __method
+  parameter in the request, if it exists, it overwrites the submitted method.
+mixin form(method, action)
+  -var httpMethod = method;
+  -var notStandard = method != 'get' && method != 'post';
+  if notStandard
+    -httpMethod = 'post';
+  form.form-horizontal(method=httpMethod, action=action)&attributes(attributes)
+    if notStandard
+      input(type="hidden", name="__method", value=method)
+    block

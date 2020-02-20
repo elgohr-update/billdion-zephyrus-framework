@@ -1,0 +1,11 @@
+{
+  "messages": {
+
+    "welcome": "Bienvenu dans Zephyrus Framework",
+
+    "success": {
+      "signup": "L'inscription a été effectuée avec succès"
+    }
+
+  }
+}

@@ -1,8 +1,6 @@
 <?php namespace Controllers;
 
-use Models\Item;
-
-class ExampleController extends SecurityController
+class ExampleController extends Controller
 {
     /**
      * Defines all the routes supported by this controller associated with
@@ -15,45 +13,25 @@ class ExampleController extends SecurityController
     }
 
     /**
-     * Example route which renders a simple page of items.
+     * Example route returning a HTML response by rendering a pug file.
      */
     public function index()
     {
-        return $this->render('example', ["currentDate" => date('Y-m-d')]);
+        return $this->render('example', ["currentDate" => date(FORMAT_DATE)]);
     }
 
     /**
-     * Example route rendering json entities.
+     * Example route that returns a JSON response.
      */
     public function jsonTest()
     {
-        $items = $this->buildItems();
-        return $this->json($items);
-    }
-
-    /**
-     * @return Item[]
-     */
-    private function buildItems(): array
-    {
-        $items = [];
-        $item = new Item();
-        $item->setId(1);
-        $item->setName("Batarang");
-        $item->setPrice(10.50);
-        $items[] = $item;
-
-        $item = new Item();
-        $item->setId(2);
-        $item->setName("Captain America Shield");
-        $item->setPrice(400);
-        $items[] = $item;
-
-        $item = new Item();
-        $item->setId(3);
-        $item->setName("Thor Hammer");
-        $item->setPrice(700);
-        $items[] = $item;
-        return $items;
+        return $this->json([
+            ['alias' => 'Batman', 'name' => 'Bruce Wayne'],
+            ['alias' => 'Superman', 'name' => 'Clark Kent'],
+            ['alias' => 'Wonder Woman', 'name' => 'Diana Prince'],
+            ['alias' => 'The Flash', 'name' => 'Bruce Wayne'],
+            ['alias' => 'Aquaman', 'name' => 'Arthur Curry'],
+            ['alias' => 'Green Lantern', 'name' => 'Hal Jordan']
+        ]);
     }
 }

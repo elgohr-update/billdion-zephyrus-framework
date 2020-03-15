@@ -5,22 +5,15 @@
 // with Composer dependency manager. Do not modify.
 use Zephyrus\Network\Router;
 use Zephyrus\Application\Bootstrap;
+use Zephyrus\Application\Session;
+use Zephyrus\Application\Localization;
+use Zephyrus\Exceptions\LocalizationException;
 define('ROOT_DIR', __DIR__ . '/..');
 require ROOT_DIR . '/vendor/autoload.php';
 $router = new Router();
 include(Bootstrap::getHelperFunctionsPath());
 Bootstrap::start();
 // endregion
-
-use Zephyrus\Application\Localization;
-use Zephyrus\Exceptions\LocalizationException;
-use Zephyrus\Application\Configuration;
-use Zephyrus\Application\Session;
-
-if (Configuration::getApplicationConfiguration('env') == 'prod') {
-    include('handlers.php');
-}
-
 
 // region Session startup
 // Optional if your project does not require a session. E.g. an API.

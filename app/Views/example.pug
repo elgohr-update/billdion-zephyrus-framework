@@ -1,5 +1,5 @@
 extends layout/layout
 
 block content
-  h1 Bienvenue
-  p Nous sommes le #{format('date', currentDate)}
+  h1=localize("messages.welcome")
+  p=localize("messages.date_display", format('date', currentDate))

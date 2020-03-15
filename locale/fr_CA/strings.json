@@ -1,11 +1,9 @@
 {
   "messages": {
-
     "welcome": "Bienvenu dans Zephyrus Framework",
-
+    "date_display": "Nous sommes le %s",
     "success": {
       "signup": "L'inscription a été effectuée avec succès"
     }
-
   }
 }

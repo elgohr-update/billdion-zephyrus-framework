@@ -28,7 +28,7 @@ mixin flashMessage(data, type)
   parameter in the request, if it exists, it overwrites the submitted method.
 mixin form(method, action)
   -var httpMethod = method;
-  -var notStandard = method != 'get' && method != 'post';
+  -var notStandard = method !== 'get' && method !== 'post';
   if notStandard
     -httpMethod = 'post';
   form.form-horizontal(method=httpMethod, action=action)&attributes(attributes)

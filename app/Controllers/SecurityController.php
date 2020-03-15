@@ -3,6 +3,7 @@
 use Zephyrus\Exceptions\IntrusionDetectionException;
 use Zephyrus\Security\Authorization;
 use Zephyrus\Security\ContentSecurityPolicy;
+use Zephyrus\Security\Controller as ZephyrusBaseController;
 
 /**
  * This controller class acts as a security middleware for the application. All
@@ -14,7 +15,7 @@ use Zephyrus\Security\ContentSecurityPolicy;
  * Class SecurityController
  * @package Controllers
  */
-abstract class SecurityController extends \Zephyrus\Security\Controller
+abstract class SecurityController extends ZephyrusBaseController
 {
     public function before()
     {
@@ -40,7 +41,7 @@ abstract class SecurityController extends \Zephyrus\Security\Controller
              */
             $data = $exception->getIntrusionData();
             if ($data['impact'] >= 10) {
-                // Do something (logs, ...)
+                // Do something (logs, database report, redirect, ...)
             }
         }
     }

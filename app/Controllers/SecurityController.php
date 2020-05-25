@@ -1,23 +1,26 @@
 <?php namespace Controllers;
 
 use Zephyrus\Exceptions\IntrusionDetectionException;
+use Zephyrus\Network\Response;
 use Zephyrus\Security\Authorization;
 use Zephyrus\Security\ContentSecurityPolicy;
 use Zephyrus\Security\Controller as ZephyrusBaseController;
 
 /**
  * This controller class acts as a security middleware for the application. All
- * controllers should extends this middleware to ensure proper security and
- * maintainability. This class should be used to specified authorizations,
- * CSP headers, intrusion detection behaviors, and another another security
- * specific settings for your application.
+ * controllers should inherit this middleware to ensure proper security and
+ * maintainability. This class should be used to specify authorizations, CSP
+ * headers, intrusion detection behaviors, and any another security specific
+ * settings for your application. The Zephyrus base security controller which
+ * this class extends from contains basic security behaviors that all applications
+ * should have (CSRF, security headers and authorization engine).
  *
  * Class SecurityController
  * @package Controllers
  */
 abstract class SecurityController extends ZephyrusBaseController
 {
-    public function before()
+    public function before(): ?Response
     {
         $this->applyContentSecurityPolicies();
         $this->setupAuthorizations();
@@ -44,6 +47,8 @@ abstract class SecurityController extends ZephyrusBaseController
                 // Do something (logs, database report, redirect, ...)
             }
         }
+
+        return null;
     }
 
     private function setupAuthorizations()

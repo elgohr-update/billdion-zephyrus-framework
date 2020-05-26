@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import "vendor/LineIcons.min.css";
+@import "vendor/bootstrap.min.css";
+
+:root {
+    --accent: #B24592; /* #ee673a, #2b88af, #a0d034 */
+    --accent-dark: #459570;
+    --dark: #343a40;
+    --light-dark: #4f565c; /* To be used over dark color */
+    --icon-shading: #929493;
+    --card-background: #f9f9fb;
+    --light: #fff;
+    --link: #0e90d2;
+    --link-dark: #0e5490;
+    --background: #fff;
+    --header-image: url("/stylesheets/images/background.png");
+}
+
+/*********************************************************************/
+/* BODY STRUCTURE                                                    */
+/*********************************************************************/
+html, body {
+    height: 100%
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #fff;
+}
+
+.text-shading {
+    color: #808080;
+}
+
+/*********************************************************************/
+/* HOME SECTION                                                      */
+/*********************************************************************/
+section.home {
+    background: url("images/background.jpg") no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    color: #fff;
+}
+
+section.home .svg {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden;
+}
+
+section.home .svg > svg {
+    fill: #fff;
+    width: 101%;
+}
+
+section.home > div:first-of-type {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #B24592;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity: 0.8;
+}
+
+section.home > div:first-of-type:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: url("images/dotgrid.png") repeat;
+    opacity: 0.6;
+}
+
+section.home > div:nth-of-type(2) {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+section.home .logo img {
+    width: 250px;
+}
+
+section.home .version {
+    font-weight: 400;
+    font-size: 2.4rem;
+    padding-top: 60px;
+    text-align: right;
+}
+
+section.home .version img {
+    position: relative;
+    top: -4px;
+    width: 60px;
+    padding-left: 16px;
+}
+
+section.home .welcome {
+    text-align: center;
+    padding-top: 180px;
+    color: #e3e3e3;
+}
+
+section.home .welcome img {
+    width: 120px;
+    padding-right: 32px;
+}
+
+section.home .welcome h1 {
+    padding-top: 16px;
+    font-weight: 300;
+    font-size: 7rem;
+    font-family: 'VT323', monospace;
+    padding-bottom: 30px;
+}
+
+section.home .welcome p {
+    font-size: 1.2rem;
+}
+
+section.home .welcome a {
+    color: #3b3b3b;
+}
+
+/*********************************************************************/
+/* FEATURE SECTION                                                   */
+/*********************************************************************/
+section.features > .container > h1 {
+    margin-top: 60px;
+    text-align: center;
+}
+
+section.features > .container > h1+p {
+    margin-bottom: 80px;
+    color: #808080;
+    text-align: center;
+}
+
+section.features .col-4 {
+    border-left: 1px solid rgba(0,0,0,.1);
+}
+
+section.features .col-4:first-of-type {
+    border-left: none;
+}
+
+section.features .col-4 span {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    color: #B24592;
+    font-size: 3rem;
+    border-radius: 100%;
+    border: 1px solid #dedede;
+    margin-bottom: 16px;
+    padding-top: 4px;
+}
+
+section.counters {
+    background: #f5f5f5;
+    padding-top: 60px;
+}
+
+section.counters .col span > i {
+    color: #B24592;
+    font-size: 3rem;
+}
+
+section.counters .col > div {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.svg-counter {
+    overflow: hidden;
+    height: 260px;
+}
+
+.svg-footer {
+    overflow: hidden;
+    height: 260px;
+    background: #B24592;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.svg-footer > img {
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    left: calc(50% - 150px);
+}
+
+.svg-footer > svg {
+    position: relative;
+    top: -200px;
+}
+
+
+
+section.examples > .container > h1 {
+    text-align: center;
+}
+
+section.examples > .container > h1+p {
+    margin-bottom: 80px;
+    color: #808080;
+    text-align: center;
+}
+
+
+
+
+footer {
+    color: #fff;
+    height: 190px;
+    background: #B24592;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-top: 32px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #3b3b3b;
+}
+
+footer a:hover {
+    color: #3b3b3b;
+}
+
+footer .socials > a {
+    font-size: 2.5rem;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 16px;
+}

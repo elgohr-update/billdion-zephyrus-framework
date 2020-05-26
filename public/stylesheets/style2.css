@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700');
+@import "vendor/LineIcons.min.css";
+
+:root {
+    --accent: #fd746c;
+    --dark: #343a40;
+    --background: #fff;
+}
+
+/*********************************************************************/
+/* BODY STRUCTURE                                                    */
+/*********************************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html, body {
+    height: 100%
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/*********************************************************************/
+/* HEADER                                                            */
+/*********************************************************************/
+/* region Header */
+header {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+header > div {
+    flex-grow: 1;
+}
+
+header > div:first-of-type > img {
+    width: 150px;
+    cursor: default;
+}
+
+header > div:last-of-type {
+    text-align: right;
+    align-self: center;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--accent);
+}
+/*endregion*/
+
+/*********************************************************************/
+/* NAVIGATION                                                        */
+/*********************************************************************/
+/* region Header */
+nav {
+    /*background: #ff7e5f;
+    background: -webkit-linear-gradient(to bottom, #feb47b, #ff7e5f);
+    background: linear-gradient(to bottom, #feb47b, #ff7e5f);*/
+
+    background: #fd746c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+nav > .container > div {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+nav > .container > div > a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav > .container > div > a:last-of-type {
+    font-weight: 700;
+}
+
+nav > .container > div > a:after {
+    content: '/';
+    display: inline-block;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+nav > .container > div > a:last-of-type:after {
+    display: none;
+}
+/* endregion */
+
+/*********************************************************************/
+/* CONTENT                                                           */
+/*********************************************************************/
+main {
+    padding-top: 40px;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

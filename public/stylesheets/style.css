@@ -4,17 +4,9 @@
 @import "vendor/bootstrap.min.css";
 
 :root {
-    --accent: #B24592; /* #ee673a, #2b88af, #a0d034 */
-    --accent-dark: #459570;
+    --accent: #B24592;
     --dark: #343a40;
-    --light-dark: #4f565c; /* To be used over dark color */
-    --icon-shading: #929493;
-    --card-background: #f9f9fb;
-    --light: #fff;
-    --link: #0e90d2;
-    --link-dark: #0e5490;
     --background: #fff;
-    --header-image: url("/stylesheets/images/background.png");
 }
 
 /*********************************************************************/
@@ -35,13 +27,17 @@ body {
     background-color: #fff;
 }
 
-.text-shading {
-    color: #808080;
+code {
+    color: var(--accent);
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 3px;
 }
 
 /*********************************************************************/
 /* HOME SECTION                                                      */
 /*********************************************************************/
+/* region home */
 section.home {
     background: url("images/background.jpg") no-repeat center center;
     background-size: cover;
@@ -125,6 +121,7 @@ section.home .welcome h1 {
     font-size: 7rem;
     font-family: 'VT323', monospace;
     padding-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 section.home .welcome p {
@@ -135,9 +132,15 @@ section.home .welcome a {
     color: #3b3b3b;
 }
 
+section.home .welcome b {
+    font-weight: 700;
+}
+/* endregion */
+
 /*********************************************************************/
 /* FEATURE SECTION                                                   */
 /*********************************************************************/
+/* region Features */
 section.features > .container > h1 {
     margin-top: 60px;
     text-align: center;
@@ -149,15 +152,13 @@ section.features > .container > h1+p {
     text-align: center;
 }
 
-section.features .col-4 {
-    border-left: 1px solid rgba(0,0,0,.1);
+section.features .col-lg-4 {
+    margin-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-section.features .col-4:first-of-type {
-    border-left: none;
-}
-
-section.features .col-4 span {
+section.features .col-lg-4 span {
     display: inline-block;
     width: 80px;
     height: 80px;
@@ -169,18 +170,24 @@ section.features .col-4 span {
     margin-bottom: 16px;
     padding-top: 4px;
 }
+/* endregion */
 
+/*********************************************************************/
+/* COUNTERS SECTION                                                  */
+/*********************************************************************/
+/* region counters */
 section.counters {
     background: #f5f5f5;
     padding-top: 60px;
+    margin-top: 100px;
 }
 
-section.counters .col span > i {
+section.counters .col-lg-3 span > i {
     color: #B24592;
     font-size: 3rem;
 }
 
-section.counters .col > div {
+section.counters .col-lg-3 > div {
     font-size: 3.5rem;
     font-weight: 700;
 }
@@ -189,29 +196,12 @@ section.counters .col > div {
     overflow: hidden;
     height: 260px;
 }
+/* endregion */
 
-.svg-footer {
-    overflow: hidden;
-    height: 260px;
-    background: #B24592;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.svg-footer > img {
-    position: absolute;
-    z-index: 100;
-    width: 300px;
-    left: calc(50% - 150px);
-}
-
-.svg-footer > svg {
-    position: relative;
-    top: -200px;
-}
-
-
-
+/*********************************************************************/
+/* EXAMPLES SECTION                                                  */
+/*********************************************************************/
+/* region examples */
 section.examples > .container > h1 {
     text-align: center;
 }
@@ -222,16 +212,44 @@ section.examples > .container > h1+p {
     text-align: center;
 }
 
+section.examples > .container > h5 {
+    margin-top: 120px;
+}
+/* endregion */
 
+/*********************************************************************/
+/* FOOTER                                                            */
+/*********************************************************************/
+/* region footer */
+.svg-footer {
+    overflow: hidden;
+    height: 260px;
+    background: #B24592;
+    background: -webkit-linear-gradient(to left, #F15F79, #B24592);
+    background: linear-gradient(to left, #F15F79, #B24592);
+    margin-top: 100px;
+}
 
+.svg-footer > svg {
+    position: relative;
+    top: -200px;
+}
+
+.svg-footer > img {
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    left: calc(50% - 150px);
+}
 
 footer {
+    position: relative;
     color: #fff;
-    height: 190px;
-    background: #B24592;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #B24592;
+    background: -webkit-linear-gradient(to left, #F15F79, #B24592);
+    background: linear-gradient(to left, #F15F79, #B24592);
     padding-top: 32px;
+    padding-bottom: 32px;
     font-size: 0.9rem;
 }
 
@@ -249,3 +267,59 @@ footer .socials > a {
     text-decoration: none;
     margin-left: 16px;
 }
+
+@media screen and (max-width: 2200px) {
+    footer {
+        top: -50px;
+    }
+}
+
+@media screen and (max-width: 1900px) {
+    footer {
+        top: -100px;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    footer {
+        top: -150px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    footer {
+        top: -200px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    footer {
+        top: -250px;
+    }
+
+    section.home .welcome h1 {
+        font-size: 4rem;
+    }
+
+    section.home .welcome p {
+        font-size: 1rem;
+    }
+
+    section.home .welcome img {
+        width: 80px;
+        margin: 0 auto;
+        padding-right: 0;
+        display: block;
+    }
+
+    section.counters .col-lg-3 span > i {
+        color: #B24592;
+        font-size: 2rem;
+    }
+
+    section.counters .col-lg-3 > div {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+}
+/* endregion */

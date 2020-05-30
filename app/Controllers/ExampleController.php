@@ -23,7 +23,7 @@ class ExampleController extends Controller
         // It is also possible to define multiple accepted representations for a specific route. The following example
         // will display the same result (as JSON) either for an HTML requested render or a JSON response. Of course
         // defining accepted content type is optional, by default */* is considered.
-        $this->get("/items/{id}", "jsonTest", [ContentType::HTML, ContentType::JSON]);
+        $this->get("/items/{id}", "detailTest", [ContentType::HTML, ContentType::JSON]);
     }
 
     /**
@@ -34,13 +34,24 @@ class ExampleController extends Controller
         return $this->render('example', ["name" => "Bruce Wayne"]);
     }
 
-    public function readAllItems()
+    /**
+     * Example route /items/{id} that always returns html.
+     */
+    public function detailTest($id)
     {
-        return $this->plain("allo");
+        return $this->html("<h1>Id sent was $id</h1>");
     }
 
     /**
-     * Example route that returns a JSON response.
+     * Example route called from /items (from a browser)
+     */
+    public function readAllItems()
+    {
+        return $this->html("<ul><li><a href='/items/1'>Item #1</a></li><li><a href='/items/2'>Item #2</a></li></ul>");
+    }
+
+    /**
+     * Example route called from /items (from a client having ACCEPT application/json)
      */
     public function jsonItems()
     {

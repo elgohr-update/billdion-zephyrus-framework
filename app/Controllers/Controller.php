@@ -25,7 +25,7 @@ abstract class Controller extends SecurityController
     {
         return parent::render($page, array_merge($args, [
             'system_date' => date(FORMAT_DATE_TIME),
-            'zephyrus_version' => '1.0'
+            'zephyrus_version' => '1.0.0'
         ]));
     }
 

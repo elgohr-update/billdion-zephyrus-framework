@@ -9,7 +9,7 @@
 
     "features": {
       "structure_title": "Structure",
-      "structure_description": "Une structure de projet simple et intuitif basé sur une architecture Model-View-Controller incluant le préprocesseur HTML Pug nativement avec le Zephyrus.",
+      "structure_description": "Une structure de projet simple et intuitive basée sur une architecture Model-View-Controller incluant le préprocesseur HTML Pug nativement avec le Zephyrus.",
       "router_title": "Routage",
       "router_description": "Routeur de requêtes très simple et flexible basé sur des contrôleurs incluant une intégration facile de middlewares dans le flux d'une requête et d'un contrôleur du projet."
     },

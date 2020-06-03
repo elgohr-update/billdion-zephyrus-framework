@@ -48,10 +48,6 @@
 
     "footer": {
       "copyright": "<b>Zephyrus Framework</b> développé avec <i class='lni lni-heart-filled'></i> par David Tucker sous licence <a href='http://opensource.org/licenses/mit-license.php' target='_blank'>MIT</a>. Le contenu démonstratif de ce site Web est mis à disposition selon les termes de la licence <a href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>CC BY 4.0</a>.<br /><br />Photo principale par eberhard grossgasteiger depuis de <a href='https://www.pexels.com' target='_blank'>Pexels</a>. Icônes créés par <a href='https://www.flaticon.com/authors/freepik' target='_blank'>Freepik</a> depuis <a href='https://www.flaticon.com/' target='_blank'>flaticon.com</a>"
-    },
-
-    "success": {
-      "signup": "L'inscription a été effectuée avec succès"
     }
   }
 }

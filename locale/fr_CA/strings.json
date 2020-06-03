@@ -21,6 +21,13 @@
       "localize_description": "Moteur unique simple et optimisé pour la gestion des chaînes de caractères depuis une structure JSON, le tout facilement organisé pour offrir une internationalisation."
     },
 
+    "stats": {
+      "unit_tests": "Couverture de tests unitaires",
+      "code_climate": "Maintenabilité Code Climate",
+      "download": "Téléchargements",
+      "stars": "Étoiles"
+    },
+
     "examples": {
       "controllers": {
         "title": "Exemple 1 : Affichage d'une page HTML simple depuis une route",

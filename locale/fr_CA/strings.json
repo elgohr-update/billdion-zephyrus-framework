@@ -2,8 +2,7 @@
   "messages": {
     "greetings": {
       "hello_world": "\"Bonjour le monde\"",
-      "concepts": "Bienvenu dans le Framework Zephyrus! Ce framework est fondé sur un modèle pédagogique en s'orientant sur une structure MVC simple, une approche de <b>programmation flexible</b> laissant place à une extensibilité pour tous types de projet, une forte considération pour la sécurité applicative et une <b>liberté</b> de développement. Le tout offert depuis un noyeau orienté-objet <b>élégant</b> favorisant l'écriture d'un code de qualité propre et <b>maintenable</b>. S'oriente sur une philosophie d'ajouter un <b>plaisir</b> à programmer en n'étant pas rigoureusement strict sur une utilisation figée où tout doit passer par une configuration et y être limité.",
-      "differences": "Zephyrus s'insère à mi-chemin entre les plus petits frameworks et les monstres pour ainsi répondre aux besoins de la plus part des projets. De plus, pour répondre à sa promesse de flexibilité, Zephyrus rend l'intégration de composantes externes facile depuis Composer. Ce framework est facilement extensible pour y créer ses propres variantes avec un ensemble de fonctionnalités ajoutés.",
+      "welcome": "Bienvenu dans le Framework Zephyrus! Ce framework est fondé sur un modèle pédagogique en s'orientant sur une structure MVC <b>simple</b>, une approche de programmation <b>flexible</b> laissant place à une extensibilité pour tous types de projet, une forte considération pour la sécurité applicative et une <b>liberté</b> de développement. Le tout offert depuis un noyeau orienté-objet <b>élégant</b> favorisant l'écriture d'un code de qualité <b>propre</b> et <b>maintenable</b>. Développé avec une philosophie de maintenir un <b>plaisir</b> à programmer en n'étant pas rigoureusement strict sur une utilisation figée où tout doit passer par une configuration et y être limité. Zephyrus s'insère à mi-chemin entre les plus petits frameworks et les monstres pour ainsi répondre aux besoins de la plupart des projets.",
       "thanks": "Un immense merci pour avoir choisi Zephyrus pour le développement de votre application! Ce projet est maintenu par une équipe réduite et bénévole, n'hésitez pas à suivre les développements ou communiquer avec nous depuis le <a href='https://github.com/dadajuice/zephyrus' target='_blank'>GitHub du projet</a> pour toutes questions, commentaires, PRs ou rapport de bogues."
     },
 
@@ -11,7 +10,15 @@
       "structure_title": "Structure",
       "structure_description": "Une structure de projet simple et intuitive basée sur une architecture Model-View-Controller incluant le préprocesseur HTML Pug nativement avec le Zephyrus.",
       "router_title": "Routage",
-      "router_description": "Routeur de requêtes très simple et flexible basé sur des contrôleurs incluant une intégration facile de middlewares dans le flux d'une requête et d'un contrôleur du projet."
+      "router_description": "Routeur de requêtes très simple et flexible basé sur des contrôleurs incluant une intégration facile de middlewares dans le flux d'une requête et d'un contrôleur du projet.",
+      "security_title": "Sécurité",
+      "security_description": "Plusieurs mécanismes de sécurité intégrés tel que les entêtes CSP, les jetons CSRF, protection XSS, détection d'intrusion, mécanisme d'authorisation et plus encore!",
+      "database_title": "Base de données",
+      "database_description": "Philosophie d'accès aux données depuis des courtiers manuellement définis offrant un contôle complet sur les requêtes SQL et, par conséquent, une facilité de maintenance et d'optimisation.",
+      "validation_title": "Validations",
+      "validation_description": "Système de validation de formulaires élégant et facilement extensible offrant une multitude de règles nativement sur les nombres, les chaînes, les fichiers téléversés, les dates, etc.",
+      "localize_title": "Internationalisation",
+      "localize_description": "Moteur unique simple et optimisé pour la gestion des chaînes de caractères depuis une structure JSON, le tout facilement organisé pour offrir une internationalisation."
     },
 
     "examples": {
@@ -36,8 +43,6 @@
       "copyright": "<b>Zephyrus Framework</b> développé avec <i class='lni lni-heart-filled'></i> par David Tucker sous licence <a href='http://opensource.org/licenses/mit-license.php' target='_blank'>MIT</a>. Le contenu démonstratif de ce site Web est mis à disposition selon les termes de la licence <a href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>CC BY 4.0</a>.<br /><br />Photo principale par eberhard grossgasteiger depuis de <a href='https://www.pexels.com' target='_blank'>Pexels</a>. Icônes créés par <a href='https://www.flaticon.com/authors/freepik' target='_blank'>Freepik</a> depuis <a href='https://www.flaticon.com/' target='_blank'>flaticon.com</a>"
     },
 
-    "welcome": "Bienvenu dans Zephyrus Framework",
-    "date_display": "Nous sommes le %s",
     "success": {
       "signup": "L'inscription a été effectuée avec succès"
     }

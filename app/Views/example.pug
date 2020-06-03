@@ -18,8 +18,7 @@ block content
           h1
             img(src="/assets/images/waving-hand.png")
             !=localize("messages.greetings.hello_world")
-          p!=localize("messages.greetings.concepts")
-          p!=localize("messages.greetings.differences")
+          p!=localize("messages.greetings.welcome")
           p!=localize("messages.greetings.thanks")
     .svg: svg(x="0px" y="0px" viewBox="0 186.5 1920 113.5"): polygon(points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300")
 
@@ -40,20 +39,20 @@ block content
         p=localize("messages.features.router_description")
       .col-lg-4.text-center.col-sm-6
         span: i.lni.lni-lock
-        h4 Sécurité
-        p Plusieurs mécanismes de sécurité intégrés tel que les entêtes CSP, les jetons CSRF, protection XSS, détection d'intrusion, mécanisme d'authorisation et plus encore!
+        h4=localize("messages.features.security_title")
+        p=localize("messages.features.security_description")
       .col-lg-4.text-center.col-sm-6
         span: i.lni.lni-database
-        h4 Base de données
-        p Philosophie d'accès aux données depuis des courtiers manuellement définis offrant un contôle complet sur les requêtes SQL et, par conséquent, une facilité de maintenance et d'optimisation.
+        h4=localize("messages.features.database_title")
+        p=localize("messages.features.database_description")
       .col-lg-4.text-center.col-sm-6
         span: i.lni.lni-cog
-        h4 Validations
-        p Système de validation de formulaires élégant et facilement extensible offrant une multitude de règles nativement sur les nombres, les chaînes, les fichiers téléversés, les dates, etc.
+        h4=localize("messages.features.validation_title")
+        p=localize("messages.features.validation_description")
       .col-lg-4.text-center.col-sm-6
         span: i.lni.lni-comment
-        h4 Internationalisation
-        p Moteur unique simple et optimisé pour la gestion des chaînes de caractères depuis une structure JSON, le tout facilement organisé pour offrir une internationalisation.
+        h4=localize("messages.features.localize_title")
+        p=localize("messages.features.localize_description")
 
   // ##############################################
   // COUNTERS SECTION

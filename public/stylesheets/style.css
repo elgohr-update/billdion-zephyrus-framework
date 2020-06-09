@@ -41,7 +41,8 @@ code {
 section.home {
     background: url("images/background.jpg") no-repeat center center;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 1200px;
+    height: 100vh;
     position: relative;
     color: #fff;
 }

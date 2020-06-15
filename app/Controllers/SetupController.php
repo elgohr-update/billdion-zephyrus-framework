@@ -1,9 +1,8 @@
 <?php namespace Controllers;
 
+use Models\ComposerPackage;
 use Zephyrus\Application\Configuration;
 use Zephyrus\Application\Session;
-use Zephyrus\Exceptions\HttpRequesterException;
-use Zephyrus\Network\HttpRequester;
 use Zephyrus\Network\Response;
 
 class SetupController extends Controller
@@ -18,14 +17,17 @@ class SetupController extends Controller
 
     public function index()
     {
-        Session::getInstance()->set("setup", 1);
-        Session::getInstance()->set("setup_data", []);
         return $this->render('setup/landing');
     }
 
     public function setup()
     {
         $data = Session::getInstance()->read("setup_data", []);
+        $setup = Session::getInstance()->read("setup", 0);
+        if ($setup == 0) {
+            Session::getInstance()->set("setup", 1);
+            Session::getInstance()->set("setup_data", []);
+        }
         return $this->render('setup/start', [
             'data' => $data,
             'examples' => (object) [
@@ -60,29 +62,8 @@ class SetupController extends Controller
     {
         return parent::render($page, array_merge($args, [
             'system_date' => date(FORMAT_DATE_TIME),
-            'zephyrus_version' => $this->latestRemoteVersion()
+            'zephyrus_version' => ComposerPackage::getVersion("zephyrus/zephyrus")
         ]));
-    }
-
-    /**
-     * Fetches the latest released core version on the official github repository.
-     *
-     * @param string $repository
-     * @return string
-     */
-    private function latestRemoteVersion($repository = "dadajuice/zephyrus"): string
-    {
-        try {
-            $url = "https://api.github.com/repos/$repository/releases/latest";
-            $response = HttpRequester::get($url)->execute();
-            $response = json_decode($response);
-            if (!isset($response->tag_name)) {
-                return "1.x.x";
-            }
-            return $response->tag_name;
-        } catch (HttpRequesterException $exception) {
-            return "1.x.x";
-        }
     }
 
     private function formatMoneyExample($locale, $currency)

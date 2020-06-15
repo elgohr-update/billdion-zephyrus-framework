@@ -118,6 +118,7 @@
         "title": "Configuration des tests unitaires",
         "description": "Création d'un fichier de configurations <code>/phpunit.xml</code> et d'un répertoire de tests <code>/tests</code> contenant le nécessaire pour le démarrage d'un environnement de tests unitaires avec Zephyrus depuis le moteur <a href='https://phpunit.de' target='_blank'>PHP Unit</a>. Fortement recommandé et nécessaire pour l'utilisateur d'un intégrateur continue."
       }
-    }
+    },
+    "success": "L'assistant de configuration a correctement préparé l'environnement du projet Zephyrus. Consultez le fichier <code>config.ini</code> pour ajuster les paramètres. Les scripts utilisés par l'assistant de configuration ont tous été nettoyés du projet.<br /><br />Merci d'utiliser Zephyrus pour la conception de votre projet!"
   }
 }

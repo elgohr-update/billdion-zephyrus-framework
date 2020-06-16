@@ -7,11 +7,10 @@ mixin understand(message, name)
     .pretty.p-icon.p-curve.p-plain
       input.understand(name=inputName type="checkbox" value="1")
       .state.p-warning-o
-        i.icon.lni.lni-checkmark
+        i.icon.lni.lni-emoji-happy
         label=localize("strings.understand")
 
 mixin step-input(label, description, name, defaultValue)
-  //-errorMessages = feedback.error[arrayToProperty(fieldName)];
   -previous = data[name]
   -defaultValue = (previous) ? previous : defaultValue
   .row
@@ -48,7 +47,7 @@ mixin step-switch(label, description, name, active)
 doctype html
 html
   head
-    title Configuration
+    title Assistant de configuration
     meta(charset="utf-8")
     link(rel="stylesheet" href="/stylesheets/setup.css")
     script(src="/javascripts/vendor/jquery-3.5.1.min.js" type="text/javascript")
@@ -314,7 +313,6 @@ html
                             td=(data['others_unittest'] === "1" ? localize("strings.yes") : localize("strings.no"))
                       br
                       +understand(localize("setup.understand"))
-
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
@@ -358,7 +356,7 @@ html
               input.val((input.val() === "1") ? "0" : "1");
           });
           $(".understand").each(function (i, checkbox) {
-              associatedButton = $(checkbox).closest("form").find(".btn[type=submit]");
+              let associatedButton = $(checkbox).closest("form").find(".btn[type=submit]");
               associatedButton.prop("disabled", true);
               $(checkbox).click(function () {
                   associatedButton.prop("disabled", !this.checked);

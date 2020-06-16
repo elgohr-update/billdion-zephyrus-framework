@@ -41,7 +41,6 @@ class SetupController extends Controller
         ]);
         if ($setup == 7) {
             $this->emptyProject();
-            Session::getInstance()->destroy();
         }
         return $view;
     }

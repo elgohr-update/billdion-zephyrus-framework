@@ -27,21 +27,6 @@ body {
     background-color: #fff;
 }
 
-code {
-    color: var(--accent);
-    background: #f5f5f5;
-    border-radius: 4px;
-    padding: 3px;
-}
-
-.text-gray {
-    color: #929493;
-}
-
-.text-accent {
-    color: var(--accent);
-}
-
 .general-wrapper {
     min-height: 100%;
     position: relative;
@@ -50,13 +35,7 @@ code {
 /*********************************************************************/
 /* HEADER                                                            */
 /*********************************************************************/
-nav {
-    height: 82px;
-    background: #B24592;
-    background: -webkit-linear-gradient(to left, #F15F79, #B24592);
-    background: linear-gradient(to left, #F15F79, #B24592);
-}
-
+/* region Header */
 header > .container img {
     width: 200px;
 }
@@ -65,6 +44,21 @@ header > .container {
     padding-top: 16px;
     padding-bottom: 16px;
     opacity: 0.75;
+}
+
+header .version {
+    font-size: 1.8rem;
+    text-align: right;
+    padding-top: 24px;
+}
+/* endregion */
+
+/* region Navigation */
+nav {
+    height: 82px;
+    background: #B24592;
+    background: -webkit-linear-gradient(to left, #F15F79, #B24592);
+    background: linear-gradient(to left, #F15F79, #B24592);
 }
 
 nav > .container > h4 {
@@ -88,28 +82,7 @@ nav > .container > h4 > span {
     margin-left: 4px;
     opacity: 0.7;
 }
-
-header .version {
-    font-size: 1.8rem;
-    text-align: right;
-    padding-top: 24px;
-}
-
-a {
-    color: var(--accent);
-}
-
-a:hover {
-    color: var(--accent);
-    text-decoration: underline;
-}
-
-table.table.table-sm > tbody > tr > td:first-of-type {
-    width: 40%;
-    text-align: right;
-    padding-right: 64px;
-    font-weight: 300;
-}
+/* endregion */
 
 /*********************************************************************/
 /* MAIN CONTENT                                                      */
@@ -119,8 +92,36 @@ main {
     padding-bottom: 160px;
 }
 
-.steps .col-md-4 {
-    margin-top: 38px;
+/* region General */
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+code {
+    color: var(--accent);
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+.text-gray {
+    color: #929493;
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+table.table.table-sm > tbody > tr > td:first-of-type {
+    width: 40%;
+    text-align: right;
+    padding-right: 64px;
+    font-weight: 300;
 }
 
 .well {
@@ -128,6 +129,36 @@ main {
     background: #f5f5f5;
     border-radius: 4px;
     font-size: 0.9rem;
+}
+
+.success {
+    font-size: 1.5rem;
+}
+
+::-webkit-input-placeholder {
+    color: #4e555b;
+    font-weight: 300;
+}
+
+::-moz-placeholder {
+    color: #4e555b;
+    font-weight: 300;
+}
+
+:-ms-input-placeholder {
+    color: #4e555b;
+    font-weight: 300;
+}
+
+:-moz-placeholder {
+    color: #4e555b;
+    font-weight: 300;
+}
+/* endregion */
+
+/* region Side stepper */
+.steps .col-md-4 {
+    margin-top: 38px;
 }
 
 .steps {
@@ -139,7 +170,7 @@ main {
 }
 
 .steps > div {
-    margin-bottom: 64px;
+    margin-bottom: 32px;
     position: relative;
 }
 
@@ -149,7 +180,7 @@ main {
     display: block;
     background: var(--accent);
     width: 1px;
-    height: calc(100% + 32px);
+    height: calc(100% + 1px);
     left: 15px;
     top: 31px;
 }
@@ -181,52 +212,12 @@ main {
     margin-left: 32px;
     margin-top: 16px;
 }
-
-::-webkit-input-placeholder {
-    color: #4e555b;
-    font-weight: 300;
-}
-
-::-moz-placeholder {
-    color: #4e555b;
-    font-weight: 300;
-}
-
-:-ms-input-placeholder {
-    color: #4e555b;
-    font-weight: 300;
-}
-
-:-moz-placeholder {
-    color: #4e555b;
-    font-weight: 300;
-}
-
-/*********************************************************************/
-/* FOOTER                                                            */
-/*********************************************************************/
-footer {
-    background: #484546;
-    font-size: 0.9rem;
-    padding: 16px;
-    color: #fff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a, footer a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.success {
-    font-size: 1.5rem;
-}
+/* endregion */
 
 /*********************************************************************/
 /* ANIMATION CHECKMARK                                               */
 /*********************************************************************/
+/* region Success checkbox animation */
 .circle-loader {
     margin-bottom: 3.5em;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -299,10 +290,13 @@ footer a, footer a:hover {
         opacity: 1;
     }
 }
+/* endregion */
 
 /*********************************************************************/
 /* BUTTON TOGGLE                                                     */
+/* https://codepen.io/aanjulena/pen/ZLZjzV                           */
 /*********************************************************************/
+/* region Button Toogle */
 .btn-toggle {
     margin: 0 4rem;
     padding: 0;
@@ -663,4 +657,4 @@ footer a, footer a:hover {
 .btn-toggle.btn-secondary.active {
     background-color: #ff8300;
 }
-
+/* endregion */

@@ -81,19 +81,27 @@
       "description": "",
       "framework": {
         "title": "Framework de premier plan",
-        "description": "Sélectionner un framework de premier plan à intégrer automatiquement dans le projet. L'assistant de configuration va télécharger la dernière version du framework sélectionné pour l'intégrer localement dans les répertoires <code>/public/stylesheets/vendors</code> et <code>/public/javascripts/vendor</code>."
+        "description": "Sélectionner un framework de premier plan à intégrer dans le projet. L'assistant de configuration va intégrer localement dans les répertoires <code>/public/stylesheets/vendors</code> et <code>/public/javascripts/vendor</code> les dépendances du framework sélectionné. Pour le moment, les frameworks disponibles sont : <a href='https://getbootstrap.com' target='_blank'>Bootstrap v4.5.0</a>, <a href='https://materializecss.com' target='_blank'>Materialize v1.0.0</a> et <a href='https://bulma.io' target='_blank'>Bulma v0.9.0</a>. Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
       },
       "jquery": {
         "title": "JQuery",
-        "description": "Téléchargement et intégration dans le projet de la dernière version de la <a href='https://jquery.com' target='_blank'>bibliothèque JQuery</a> localement dans le répertoire <code>/public/javascripts/vendors</code>."
+        "description": "Intégration dans le projet de la <a href='https://jquery.com' target='_blank'>bibliothèque JQuery v3.5.1</a> localement dans le répertoire <code>/public/javascripts/vendors</code>. Une bibliothèque qui facilite toutes les manipulations JavaScript. Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
       },
       "fontawesome": {
         "title": "Font Awesome",
-        "description": "Téléchargement et inclusion dans le projet de la dernière version gratuite des <a href='https://fontawesome.com' target='_blank'>icônes de Font Awesome</a> localement dans le répertoire <code>/public/stylesheets/vendors</code>."
+        "description": "Inclusion de l'ensemble gratuit des icônes <a href='https://fontawesome.com' target='_blank'>Font Awesome v5.13.0</a> localement dans le répertoire <code>/public/stylesheets/vendors</code>. Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
       },
       "lineicons": {
         "title": "Line Icons",
-        "description": "Téléchargement et inclusion dans le projet de la dernière version gratuite des <a href='https://lineicons.com' target='_blank'>icônes de Line Icons</a> localement dans le répertoire <code>/public/stylesheets/vendors</code>."
+        "description": "Inclusion de l'ensemble gratuit des icônes <a href='https://lineicons.com' target='_blank'>Line Icons v2.0</a> localement dans le répertoire <code>/public/stylesheets/vendors</code>. Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
+      },
+      "moments": {
+        "title": "Moment JS",
+        "description": "Inclusion de la bibliothèque JavaScript <a href='https://momentjs.com' target='_blank'>Moment JS v2.26.0</a> localement dans le répertoire <code>/public/javascripts/vendors</code> (version avec toutes les langues). Cette bibliothèque permet une manipulation simple des dates et du temps en JavaScript (validation, affichage, transformation, etc.). Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
+      },
+      "numeral": {
+        "title": "Numeral JS",
+        "description": "Inclusion de la bibliothèque JavaScript <a href='http://numeraljs.com' target='_blank'>Numeral JS v2.0.6</a> localement dans le répertoire <code>/public/javascripts/vendors</code> (version avec toutes les langues). Une bibliothèque incontournable permettant un formattage et une manipulation simple des nombres. Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
       }
     },
     "others": {

@@ -112,7 +112,7 @@ html
                         option(value="pgsql") PostgreSQL
                         option(value="sqlite") SQLite
                       hr
-                      +step-input(localize("setup.database.host.title"), localize("setup.database.host.description"), "database_host")(placeholder="Ex.: localhost")
+                      +step-input(localize("setup.database.host.title"), localize("setup.database.host.description"), "database_host", "localhost")(placeholder="Ex.: localhost")
                       hr
                       +step-input(localize("setup.database.name.title"), localize("setup.database.name.description"), "database_name")(placeholder="Ex.: demo")
                       hr
@@ -170,8 +170,8 @@ html
                     +form("post", "/setup")
                       +step-select(localize("setup.frontend.framework.title"), localize("setup.frontend.framework.description"), "frontend_framework")
                         option(value="none") Aucun
-                        option(value="bootstrap4") Bootstrap 4
-                        option(value="meterial_design") Material Design
+                        option(value="bootstrap_4.5.0") Bootstrap 4.5.0
+                        option(value="meterialize") Materialize
                         option(value="bulma") Bulma
                       hr
                       +step-switch(localize("setup.frontend.jquery.title"), localize("setup.frontend.jquery.description"), "frontend_jquery", false)
@@ -179,6 +179,10 @@ html
                       +step-switch(localize("setup.frontend.fontawesome.title"), localize("setup.frontend.fontawesome.description"), "frontend_fontawesome", false)
                       hr
                       +step-switch(localize("setup.frontend.lineicons.title"), localize("setup.frontend.lineicons.description"), "frontend_lineicons", false)
+                      hr
+                      +step-switch(localize("setup.frontend.moments.title"), localize("setup.frontend.moments.description"), "frontend_moments", false)
+                      hr
+                      +step-switch(localize("setup.frontend.numeral.title"), localize("setup.frontend.numeral.description"), "frontend_numeral", false)
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
                         button.btn.btn-sm.btn-success(type="submit") Continuer
@@ -203,7 +207,7 @@ html
                       hr
                       +step-switch(localize("setup.others.travis.title"), localize("setup.others.travis.description"), "others_travis", true)
                       hr
-                      +step-switch(localize("setup.others.styleci.title"), localize("setup.others.styleci.description"), "others_travis", false)
+                      +step-switch(localize("setup.others.styleci.title"), localize("setup.others.styleci.description"), "others_styleci", false)
                       hr
                       +step-switch(localize("setup.others.unittest.title"), localize("setup.others.unittest.description"), "others_unittest", true)
                       .text-right.mt-3
@@ -274,6 +278,12 @@ html
                             td=localize("setup.frontend.lineicons.title")
                             td=(data['frontend_lineicons'] === "1" ? "Oui" : "Non")
                           tr
+                            td=localize("setup.frontend.moments.title")
+                            td=(data['frontend_moments'] === "1" ? "Oui" : "Non")
+                          tr
+                            td=localize("setup.frontend.numeral.title")
+                            td=(data['frontend_numeral'] === "1" ? "Oui" : "Non")
+                          tr
                             td=localize("setup.others.git.title")
                             td=data['others_git']
                           tr
@@ -282,6 +292,9 @@ html
                           tr
                             td=localize("setup.others.travis.title")
                             td=(data['others_travis'] === "1" ? "Oui" : "Non")
+                          tr
+                            td=localize("setup.others.styleci.title")
+                            td=(data['others_styleci'] === "1" ? "Oui" : "Non")
                           tr
                             td=localize("setup.others.unittest.title")
                             td=(data['others_unittest'] === "1" ? "Oui" : "Non")

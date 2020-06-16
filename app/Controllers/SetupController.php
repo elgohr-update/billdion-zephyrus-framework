@@ -220,6 +220,7 @@ class SetupController extends Controller
         (new File(ROOT_DIR . '/public/javascripts/app.js'))->remove();
         (new File(ROOT_DIR . '/public/stylesheets/style.css'))->remove();
         (new File(ROOT_DIR . '/public/stylesheets/setup.css'))->remove();
+        (new File(ROOT_DIR . '/public/stylesheets/vendor/LineIcons.min.css'))->remove();
         if ($data['frontend_framework'] != 'bootstrap_4.5.0') {
             (new File(ROOT_DIR . '/public/stylesheets/vendor/bootstrap.min.css'))->remove();
             (new File(ROOT_DIR . '/public/stylesheets/vendor/bootstrap.min.css.map'))->remove();
@@ -230,12 +231,10 @@ class SetupController extends Controller
             (new File(ROOT_DIR . '/public/javascripts/vendor/jquery-3.5.1.min.js'))->remove();
         }
         if ($data['frontend_lineicons'] != '1') {
-            (new File(ROOT_DIR . '/public/stylesheets/vendor/LineIcons.css'))->remove();
             (new File(ROOT_DIR . '/public/stylesheets/fonts/LineIcons.eot'))->remove();
             (new File(ROOT_DIR . '/public/stylesheets/fonts/LineIcons.svg'))->remove();
             (new File(ROOT_DIR . '/public/stylesheets/fonts/LineIcons.ttf'))->remove();
             (new File(ROOT_DIR . '/public/stylesheets/fonts/LineIcons.woff'))->remove();
-            (new File(ROOT_DIR . '/public/stylesheets/fonts/LineIcons.woff2'))->remove();
         }
 
         Directory::create(ROOT_DIR . '/public/stylesheets/images');

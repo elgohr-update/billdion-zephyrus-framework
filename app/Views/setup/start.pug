@@ -1,5 +1,15 @@
 include ../mixins/base
 
+mixin understand(message, name)
+  -inputName = !name ? "understand" : name
+  .alert.alert-warning.text-left.small
+    p!=message
+    .pretty.p-icon.p-curve.p-plain
+      input.understand(name=inputName type="checkbox" value="1")
+      .state.p-warning-o
+        i.icon.lni.lni-checkmark
+        label=localize("strings.understand")
+
 mixin step-input(label, description, name, defaultValue)
   //-errorMessages = feedback.error[arrayToProperty(fieldName)];
   -previous = data[name]
@@ -91,8 +101,8 @@ html
                       hr
                       +step-input(localize("setup.application.timezone.title"), localize("setup.application.timezone.description"), "application_timezone", "America/New_York")(placeholder="Ex.: America/New_York")
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
-                        button.btn.btn-sm.btn-success(type="submit") Continuer
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
               else if sess("setup") < 1
                 div.inactive: span Application
               else
@@ -126,8 +136,8 @@ html
                       hr
                       +step-switch(localize("setup.database.convert.title"), localize("setup.database.convert.description"), "database_convert", true)
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
-                        button.btn.btn-sm.btn-success(type="submit") Continuer
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
               else if sess("setup") < 2
                 div.inactive: span Base de données
               else
@@ -152,8 +162,8 @@ html
                       hr
                       +step-switch(localize("setup.security.session_refresh.title"), localize("setup.security.session_refresh.description"), "security_session_refresh", false)
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
-                        button.btn.btn-sm.btn-success(type="submit") Continuer
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
               else if sess("setup") < 3
                 div.inactive: span Sécurité
               else
@@ -184,8 +194,8 @@ html
                       hr
                       +step-switch(localize("setup.frontend.numeral.title"), localize("setup.frontend.numeral.description"), "frontend_numeral", false)
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
-                        button.btn.btn-sm.btn-success(type="submit") Continuer
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
 
               else if sess("setup") < 4
                 div.inactive: span Bibliothèques et framework Front-end
@@ -211,8 +221,8 @@ html
                       hr
                       +step-switch(localize("setup.others.unittest.title"), localize("setup.others.unittest.description"), "others_unittest", true)
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
-                        button.btn.btn-sm.btn-success(type="submit") Continuer
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
               else if sess("setup") < 5
                 div.inactive: span Autres configurations
               else
@@ -228,6 +238,10 @@ html
                   div
                     +form("post", "/setup")
                       table.table.table-sm
+                        thead
+                          tr
+                            th Paramètre
+                            th Valeur
                         tbody
                           tr
                             td=localize("setup.application.locale.title")
@@ -237,71 +251,73 @@ html
                             td!=data['application_currency'] + " <small class='text-gray'>(ex. " + examples.currency + ")</small>"
                           tr
                             td=localize("setup.application.timezone.title")
-                            td!=data['application_timezone'] + " <small class='text-gray'>(ex. " + examples.currency + ")</small>"
+                            td!=data['application_timezone'] + " <small class='text-gray'>(ex. " + examples.timezone + ")</small>"
                           tr
                             td=localize("setup.database.name.title")
                             td
                               =data['database_system'] + "@" + data['database_name']
                               br
-                              ="Utilisateur: " + data['database_username']
+                              =localize("setup.database.username.title") + ": " + data['database_username']
                               br
-                              ="Jeu de caractères: " + data['database_charset']
+                              =localize("setup.database.charset.title") + ": " + data['database_charset']
                               br
-                              ="Instance partagée: " + (data['database_shared'] === "1" ? "Oui" : "Non")
+                              =localize("setup.database.shared.title") + ": " + (data['database_shared'] === "1" ? localize("strings.yes") : localize("strings.no"))
                               br
-                              ="Conversion de type: " + (data['database_convert'] === "1" ? "Oui" : "Non")
+                              =localize("setup.database.convert.title") + ": " + (data['database_convert'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.security.ids.title")
-                            td=(data['security_ids'] === "1" ? "Oui" : "Non")
+                            td=(data['security_ids'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.security.csrf.title")
-                            td=(data['security_csrf'] === "1" ? "Oui" : "Non")
+                            td=(data['security_csrf'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.security.session_encrypt.title")
-                            td=(data['security_session_encrypt'] === "1" ? "Oui" : "Non")
+                            td=(data['security_session_encrypt'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.security.session_hash.title")
-                            td=(data['security_session_hash'] === "1" ? "Oui" : "Non")
+                            td=(data['security_session_hash'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.security.session_refresh.title")
-                            td=(data['security_session_refresh'] === "1" ? "Oui" : "Non")
+                            td=(data['security_session_refresh'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.frontend.framework.title")
                             td=data['frontend_framework']
                           tr
                             td=localize("setup.frontend.jquery.title")
-                            td=(data['frontend_jquery'] === "1" ? "Oui" : "Non")
+                            td=(data['frontend_jquery'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.frontend.fontawesome.title")
-                            td=(data['frontend_fontawesome'] === "1" ? "Oui" : "Non")
+                            td=(data['frontend_fontawesome'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.frontend.lineicons.title")
-                            td=(data['frontend_lineicons'] === "1" ? "Oui" : "Non")
+                            td=(data['frontend_lineicons'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.frontend.moments.title")
-                            td=(data['frontend_moments'] === "1" ? "Oui" : "Non")
+                            td=(data['frontend_moments'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.frontend.numeral.title")
-                            td=(data['frontend_numeral'] === "1" ? "Oui" : "Non")
+                            td=(data['frontend_numeral'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.others.git.title")
-                            td=data['others_git']
+                            td=(empty(data['others_git']) ? '-' : data['others_git'])
                           tr
                             td=localize("setup.others.codeclimate.title")
-                            td=(data['others_codeclimate'] === "1" ? "Oui" : "Non")
+                            td=(data['others_codeclimate'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.others.travis.title")
-                            td=(data['others_travis'] === "1" ? "Oui" : "Non")
+                            td=(data['others_travis'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.others.styleci.title")
-                            td=(data['others_styleci'] === "1" ? "Oui" : "Non")
+                            td=(data['others_styleci'] === "1" ? localize("strings.yes") : localize("strings.no"))
                           tr
                             td=localize("setup.others.unittest.title")
-                            td=(data['others_unittest'] === "1" ? "Oui" : "Non")
+                            td=(data['others_unittest'] === "1" ? localize("strings.yes") : localize("strings.no"))
+                      br
+                      +understand(localize("setup.understand"))
 
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel") Annuler
-                        button.btn.btn-sm.btn-success(type="submit") Continuer
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
               else if sess("setup") < 6
                 div.inactive: span Confirmation
               else
@@ -334,15 +350,18 @@ html
                     }, 1500);
                 });
 
-      //footer
-        .container
-          p.text-center!=localize("messages.footer.copyright")
-
     script(nonce=nonce()).
       $(function () {
           $(".btn-toggle").click(function (e) {
               e.preventDefault();
               let input = $(this).find("input[type=hidden]");
               input.val((input.val() === "1") ? "0" : "1");
+          });
+          $(".understand").each(function (i, checkbox) {
+              associatedButton = $(checkbox).closest("form").find(".btn[type=submit]");
+              associatedButton.prop("disabled", true);
+              $(checkbox).click(function () {
+                  associatedButton.prop("disabled", !this.checked);
+              });
           });
       });

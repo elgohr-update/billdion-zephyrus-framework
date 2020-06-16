@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import "vendor/LineIcons.css";
 @import "vendor/bootstrap.min.css";
+@import "vendor/pretty-checkbox.min.css";
 
 :root {
     --accent: #B24592;
@@ -122,6 +123,21 @@ table.table.table-sm > tbody > tr > td:first-of-type {
     text-align: right;
     padding-right: 64px;
     font-weight: 300;
+}
+
+table.table.table-sm > tbody > tr > td:first-of-type:after {
+    content: ':';
+    display: inline;
+}
+
+table.table.table-sm > thead > tr > th {
+    font-weight: 400;
+    border-top: none;
+}
+
+table.table.table-sm > thead > tr > th:first-of-type {
+    text-align: right;
+    padding-right: 64px;
 }
 
 .well {

@@ -213,6 +213,7 @@ class SetupController extends Controller
         (new Directory(ROOT_DIR . '/locale/cache'))->remove();
         (new Directory(ROOT_DIR . '/public/stylesheets/images'))->remove();
         (new File(ROOT_DIR . '/locale/fr_CA/setup.json'))->remove();
+        (new File(ROOT_DIR . '/locale/fr_CA/landing.json'))->remove();
         (new File(ROOT_DIR . '/public/javascripts/vendor/highlight.pack.js'))->remove();
         (new File(ROOT_DIR . '/public/stylesheets/vendor/highlight-default.css'))->remove();
         (new File(ROOT_DIR . '/public/stylesheets/vendor/pretty-checkbox.min.css'))->remove();

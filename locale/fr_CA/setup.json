@@ -1,7 +1,7 @@
 {
   "setup": {
     "application": {
-      "description": "",
+      "title": "Application",
       "locale": {
         "title": "Langue",
         "description": "Entrer la langue à utiliser pour le formattage automatique ainsi que pour l'internationalisation par défaut par le framework. Doit être comptabile avec le <a href='http://www.faqs.org/rfcs/rfc1766.html' target='_blank'>RFC 1766</a>. Débute normalement par le code de la langue sur 2 caractères suivi d'un « _ » et du code du pays également sur 2 caractères (exemple: fr_CA, en_US, en_CA)."
@@ -20,7 +20,7 @@
       }
     },
     "database": {
-      "description": "",
+      "title": "Base de données",
       "dbms": {
         "title": "SGBD",
         "description": "Sélectionner le système de gestion de la base de données à utiliser pour votre projet. Les systèmes supportés actuellement par Zephyrus sont MySQL (MariaDB), PostgreSQL et SQLite. Il est possible de modifier cette configuration à tout moment depuis le fichier <code>config.ini</code>."
@@ -55,7 +55,7 @@
       }
     },
     "security": {
-      "description": "",
+      "title": "Sécurité",
       "ids": {
         "title": "Détection d'intrusion",
         "description": "Activer le système de détection d'intrusion (IDS) pour toutes les requêtes (projet <a href='https://github.com/enygma/expose' target='_blank'>Expose</a>). Ce module permet d'attraper des tentatives d'attaques par injection SQL ou XSS directement depuis les paramètres de la requête et d'agir sur ces tentatives avant même d'atteindre l'exécution d'une route. Les actions suite à une détection, doivent être programmées selon les besoins de l'application (redirection, log, courriel, bloquer, etc.)."
@@ -78,7 +78,7 @@
       }
     },
     "frontend": {
-      "description": "",
+      "title": "Bibliothèques et framework Front-end",
       "framework": {
         "title": "Framework de premier plan",
         "description": "Sélectionner un framework de premier plan à intégrer dans le projet. L'assistant de configuration va intégrer localement dans les répertoires <code>/public/stylesheets/vendors</code> et <code>/public/javascripts/vendor</code> les dépendances du framework sélectionné. Pour le moment, les frameworks disponibles sont : <a href='https://getbootstrap.com' target='_blank'>Bootstrap v4.5.0</a>, <a href='https://materializecss.com' target='_blank'>Materialize v1.0.0</a> et <a href='https://bulma.io' target='_blank'>Bulma v0.9.0</a>. Pour utilisé la cache des clients, il est recommandé d'utiliser le CDN."
@@ -105,7 +105,7 @@
       }
     },
     "others": {
-      "description": "",
+      "title": "Autres configurations",
       "git": {
         "title": "Initialisation du répertoire avec Git",
         "description": "Au besoin, saisir le lien du <i>remote repository</i> pour initialiser le projet avec <a href='https://git-scm.com' target='_blank'>Git</a> (laissez vide pour ne pas utiliser). Nécessite le programme git intstallé sur la machine exécutant Zephyrus, l'assistant de configuration lancera la commande <code>git init</code> et <code>git remote add origin &lt;url&gt;</code>."
@@ -126,6 +126,12 @@
         "title": "Configuration des tests unitaires",
         "description": "Création d'un fichier de configurations <code>/phpunit.xml</code> et d'un répertoire de tests <code>/tests</code> contenant le nécessaire pour le démarrage d'un environnement de tests unitaires avec Zephyrus depuis le moteur <a href='https://phpunit.de' target='_blank'>PHP Unit</a>. Fortement recommandé et nécessaire pour l'utilisateur d'un intégrateur continue."
       }
+    },
+    "confirmation": {
+      "title": "Confirmation"
+    },
+    "end": {
+      "title": "Terminé"
     },
     "success": "L'assistant de configuration a correctement préparé l'environnement du projet Zephyrus. Consultez le fichier <code>config.ini</code> pour ajuster les paramètres. Les scripts utilisés par l'assistant de configuration ont tous été nettoyés du projet.<br /><br />Merci d'utiliser Zephyrus pour la conception de votre projet!",
     "understand": "L'assistant de configuration va configurer le fichier <b>config.ini</b> du projet selon les options sélectionnés, initialiser les répertoires <b>/public/stylesheets</b> et <b>/public/javascripts</b> avec les dépendances de premier plan sélectionnées et finalement effectuer un nettoyage pour supprimer les scripts de l'assistant de configuration."

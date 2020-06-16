@@ -65,31 +65,31 @@ html
           h4
             i.lni.lni-cog
             | Assistant de configuration
-            if sess("setup") === 1
-              span / Application
-            if sess("setup") === 2
-              span / Base de données
-            if sess("setup") === 3
-              span / Sécurité
-            if sess("setup") === 4
-              span / Bibliothèques et framework Front-end
-            if sess("setup") === 5
-              span / Autres configurations
-            if sess("setup") === 6
-              span / Confirmation
-            if sess("setup") === 7
-              span / Terminé
+            if setup === 1
+              span="/ " + localize("setup.application.title")
+            if setup === 2
+              span="/ " + localize("setup.database.title")
+            if setup === 3
+              span="/ " + localize("setup.security.title")
+            if setup === 4
+              span="/ " + localize("setup.frontend.title")
+            if setup === 5
+              span="/ " + localize("setup.others.title")
+            if setup === 6
+              span="/ " + localize("setup.confirmation.title")
+            if setup === 7
+              span="/ " + localize("setup.end.title")
       main
         .container
-          if sess("setup") < 7
+          if setup < 7
             .steps
               //-
                 ####################################################################
                 APPLICATION
                 ####################################################################
-              if sess("setup") === 1
+              if setup === 1
                 div
-                  span Application
+                  span=localize("setup.application.title")
                   div
                     +form("post", "/setup")
                       +step-input(localize("setup.application.locale.title"), localize("setup.application.locale.description"), "application_locale", "fr_CA")(placeholder="Ex.: fr_CA")
@@ -102,18 +102,18 @@ html
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
-              else if sess("setup") < 1
-                div.inactive: span Application
+              else if setup < 1
+                div.inactive: span=localize("setup.application.title")
               else
-                div: span Application
+                div: span=localize("setup.application.title")
 
               //-
                 ####################################################################
                 DATABASE
                 ####################################################################
-              if sess("setup") === 2
+              if setup === 2
                 div
-                  span Base de données
+                  span=localize("setup.database.title")
                   div
                     +form("post", "/setup")
                       +step-select(localize("setup.database.dbms.title"), localize("setup.database.dbms.description"), "database_system")
@@ -137,18 +137,18 @@ html
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
-              else if sess("setup") < 2
-                div.inactive: span Base de données
+              else if setup < 2
+                div.inactive: span=localize("setup.database.title")
               else
-                div: span Base de données
+                div: span=localize("setup.database.title")
 
               //-
                 ####################################################################
                 SECURITY
                 ####################################################################
-              if sess("setup") === 3
+              if setup === 3
                 div
-                  span Sécurité
+                  span=localize("setup.security.title")
                   div
                     +form("post", "/setup")
                       +step-switch(localize("setup.security.ids.title"), localize("setup.security.ids.description"), "security_ids", true)
@@ -163,18 +163,18 @@ html
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
-              else if sess("setup") < 3
-                div.inactive: span Sécurité
+              else if setup < 3
+                div.inactive: span=localize("setup.security.title")
               else
-                div: span Sécurité
+                div: span=localize("setup.security.title")
 
               //-
                 ####################################################################
                 FRONT END
                 ####################################################################
-              if sess("setup") === 4
+              if setup === 4
                 div
-                  span Bibliothèques et framework Front-end
+                  span=localize("setup.frontend.title")
                   div
                     +form("post", "/setup")
                       +step-select(localize("setup.frontend.framework.title"), localize("setup.frontend.framework.description"), "frontend_framework")
@@ -196,18 +196,18 @@ html
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
 
-              else if sess("setup") < 4
-                div.inactive: span Bibliothèques et framework Front-end
+              else if setup < 4
+                div.inactive: span=localize("setup.frontend.title")
               else
-                div: span Bibliothèques et framework Front-end
+                div: span=localize("setup.frontend.title")
 
               //-
                 ####################################################################
                 EXTERNAL CONFIGURATIONS
                 ####################################################################
-              if sess("setup") === 5
+              if setup === 5
                 div
-                  span Autres configurations
+                  span=localize("setup.others.title")
                   div
                     +form("post", "/setup")
                       +step-input(localize("setup.others.git.title"), localize("setup.others.git.description"), "others_git")(placeholder="Ex.: https://github.com/user/repo.git")
@@ -222,25 +222,25 @@ html
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
-              else if sess("setup") < 5
-                div.inactive: span Autres configurations
+              else if setup < 5
+                div.inactive: span=localize("setup.others.title")
               else
-                div: span Autres configurations
+                div: span=localize("setup.others.title")
 
               //-
                 ####################################################################
                 REVIEW
                 ####################################################################
-              if sess("setup") === 6
+              if setup === 6
                 div
-                  span Confirmation
+                  span=localize("setup.confirmation.title")
                   div
                     +form("post", "/setup")
                       table.table.table-sm
                         thead
                           tr
-                            th Paramètre
-                            th Valeur
+                            th
+                            th
                         tbody
                           tr
                             td=localize("setup.application.locale.title")
@@ -316,16 +316,16 @@ html
                       .text-right.mt-3
                         a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
-              else if sess("setup") < 6
-                div.inactive: span Confirmation
+              else if setup < 6
+                div.inactive: span=localize("setup.confirmation.title")
               else
-                div: span Confirmation
+                div: span=localize("setup.confirmation.title")
 
           //-
             ####################################################################
             SUCCESS
             ####################################################################
-          if sess("setup") === 7
+          if setup === 7
             br
             br
             br
@@ -338,7 +338,7 @@ html
               .circle-loader: .checkmark.draw
               p(style="font-size: 1.2rem;")!=localize("setup.success")
               br
-              a.btn.btn-lg.btn-success(href="/") Terminé
+              a.btn.btn-lg.btn-success(href="/")=localize("setup.end.title")
 
             script(nonce=nonce()).
                 $(function () {

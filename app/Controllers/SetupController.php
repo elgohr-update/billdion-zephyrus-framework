@@ -34,13 +34,18 @@ class SetupController extends Controller
         }
         $view = $this->render('setup/start', [
             'data' => $data,
+            'setup' => $setup,
             'examples' => (object) [
                 'currency' => $this->formatMoneyExample($data['application_locale'] ?? 'fr_CA', $data['application_currency'] ?? 'CAD'),
                 'timezone' => $this->formatDateTimeExample($data['application_timezone'] ?? 'America/New_York')
             ]
         ]);
         if ($setup == 7) {
+            $this->setupConfigIniFile();
+            $this->setupFrontEnd();
+            $this->setupOthers();
             $this->emptyProject();
+            Session::getInstance()->destroy();
         }
         return $view;
     }
@@ -50,11 +55,6 @@ class SetupController extends Controller
         $form = $this->buildForm();
         Session::getInstance()->set("setup", Session::getInstance()->read("setup") + 1);
         Session::getInstance()->set("setup_data", array_merge(Session::getInstance()->read("setup_data"), $form->getFields()));
-        if (Session::getInstance()->read("setup") == 7) {
-            $this->setupConfigIniFile();
-            $this->setupFrontEnd();
-            $this->setupOthers();
-        }
         return $this->redirect("/setup");
     }
 

@@ -3,13 +3,13 @@
   to work with list of messages and single message. Compliant with standard messaging level (error,
   success, warning, notice and info).
 mixin flash()
-  +flashMessage(flash.success, 'success')
-  +flashMessage(flash.error, 'danger')
-  +flashMessage(flash.warning, 'warning')
-  +flashMessage(flash.notice, 'notice')
-  +flashMessage(flash.info, 'info')
+  +flash-message(flash.success, 'success')
+  +flash-message(flash.error, 'danger')
+  +flash-message(flash.warning, 'warning')
+  +flash-message(flash.notice, 'notice')
+  +flash-message(flash.info, 'info')
 
-mixin flashMessage(data, type)
+mixin flash-message(data, type)
   if data
     div.alert(class='alert-' + type)
       if is_array(data)
@@ -27,8 +27,8 @@ mixin flashMessage(data, type)
   Allows usage HTTP method besides GET and POST. Zephyrus verifies the existence of a __method
   parameter in the request, if it exists, it overwrites the submitted method.
 mixin form(method, action)
-  -var httpMethod = method;
-  -var notStandard = method !== 'get' && method !== 'post';
+  -httpMethod = method;
+  -notStandard = method !== 'get' && method !== 'post';
   if notStandard
     -httpMethod = 'post';
   form.form-horizontal(method=httpMethod, action=action)&attributes(attributes)

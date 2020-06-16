@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-@import "vendor/LineIcons.min.css";
+@import "vendor/LineIcons.css";
 @import "vendor/bootstrap.min.css";
 
 :root {

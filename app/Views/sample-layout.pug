@@ -1,0 +1,36 @@
+include mixins/base
+
+doctype html
+html
+  head
+    title Zephyrus Demo
+    meta(charset="utf-8")
+    style.
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&display=swap');
+      html {
+        font-size: 100%;
+      }
+      body {
+        font-size: 1rem;
+        font-weight: 300;
+        font-family: 'Noto Sans JP', sans-serif;
+      }
+      .container {
+        width: 1080px;
+        margin: 0 auto;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      table tr td {
+        border-top: 1px solid #e0e0e0;
+        padding: 8px;
+      }
+      code {
+        color: #B24592;
+        border-radius: 4px;
+        padding: 3px;
+      }
+  body
+    .container
+      block content

@@ -246,6 +246,9 @@ class SetupController extends Controller
         File::create(ROOT_DIR . '/public/javascripts/vendor/.keep');
         File::create(ROOT_DIR . '/public/javascripts/app.js');
         File::create(ROOT_DIR . '/public/stylesheets/style.css');
+
+        $content = str_replace('/sample', '/', file_get_contents(ROOT_DIR . '/app/Controllers/ExampleController.php'));
+        (new File(ROOT_DIR . '/app/Controllers/ExampleController.php'))->write($content);
     }
 
     private function setupBootstrap(string $distribution = "bootstrap-4.5.0-dist")

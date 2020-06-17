@@ -1,9 +1,42 @@
 extends sample-layout
 
 block content
-  h1 Bienvenue #{name}
+  h1="PHP v" + version
+  br
+  br
+  table.info
+    each data, section in php_info
+      if section === 'General' || section === 'apache2handler'
+        each value, parameter in data
+          tr
+            td=parameter
+            td=value
 
-  table
+  br
+  br
+  br
+  br
+  h1 Configurations Zephyrus #[code /config.ini]
+  br
+  br
+  table.info
+    each data, title in config
+      each value, key in data
+        tr
+          td=key
+          if key === "password"
+            td *********
+          else
+            td=(is_bool(value)) ? ((value) ? "true" : "false") : value
+
+  br
+  br
+  br
+  br
+  h1 Formattages disponibles
+  br
+  br
+  table.info
     tr
       td: code format('datetime', '2020-04-17 08:40:12')
       td=format('datetime', '2020-04-17 08:40:12')

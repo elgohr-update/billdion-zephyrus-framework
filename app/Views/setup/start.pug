@@ -317,33 +317,6 @@ html
               else
                 div: span=localize("setup.confirmation.title")
 
-          //-
-            ####################################################################
-            SUCCESS
-            ####################################################################
-          if setup === 7
-            br
-            br
-            br
-            br
-            br
-            br
-            br
-            br
-            .text-center.success
-              .circle-loader: .checkmark.draw
-              p(style="font-size: 1.2rem;")!=localize("setup.success")
-              br
-              a.btn.btn-lg.btn-success(href="/")=localize("setup.end.title")
-
-            script(nonce=nonce()).
-                $(function () {
-                    setTimeout(function () {
-                        $('.circle-loader').toggleClass('load-complete');
-                        $('.checkmark').toggle();
-                    }, 1500);
-                });
-
     script(nonce=nonce()).
       $(function () {
           $(".btn-toggle").click(function (e) {

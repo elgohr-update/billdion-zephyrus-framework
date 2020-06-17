@@ -118,28 +118,6 @@ code {
     color: var(--accent);
 }
 
-table.table.table-sm > tbody > tr > td:first-of-type {
-    width: 40%;
-    text-align: right;
-    padding-right: 64px;
-    font-weight: 300;
-}
-
-table.table.table-sm > tbody > tr > td:first-of-type:after {
-    content: ':';
-    display: inline;
-}
-
-table.table.table-sm > thead > tr > th {
-    font-weight: 400;
-    border-top: none;
-}
-
-table.table.table-sm > thead > tr > th:first-of-type {
-    text-align: right;
-    padding-right: 64px;
-}
-
 .well {
     padding: 16px;
     background: #f5f5f5;
@@ -169,6 +147,25 @@ table.table.table-sm > thead > tr > th:first-of-type {
 :-moz-placeholder {
     color: #4e555b;
     font-weight: 300;
+}
+
+table.info > tbody > tr > td:first-of-type {
+    width: 40%;
+    vertical-align: top;
+    font-weight: 400;
+}
+
+table.info > tbody > tr > td:last-of-type {
+    background: #f5f5f5;
+    border-top: 1px dashed #e0e0e0;
+}
+
+table.info > tbody > tr:last-of-type > td {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table.info > tbody > tr:last-of-type > td:last-of-type {
+    border-bottom: 1px dashed #e0e0e0;
 }
 /* endregion */
 

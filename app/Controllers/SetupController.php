@@ -1,6 +1,6 @@
 <?php namespace Controllers;
 
-use Models\Utilities\ComposerPackage;
+use Zephyrus\Utilities\ComposerPackage;
 use Zephyrus\Application\Configuration;
 use Zephyrus\Application\Session;
 use Zephyrus\Network\Response;
@@ -21,6 +21,11 @@ class SetupController extends Controller
 
     public function index()
     {
+        $setup = Session::getInstance()->read("setup", 0);
+        if ($setup == 0) {
+            Session::getInstance()->set("setup", 1);
+            Session::getInstance()->set("setup_data", []);
+        }
         return $this->render('setup/landing');
     }
 

@@ -100,7 +100,7 @@ html
                       hr
                       +step-input(localize("setup.application.timezone.title"), localize("setup.application.timezone.description"), "application_timezone", "America/New_York")(placeholder="Ex.: America/New_York")
                       .text-right.mt-3
-                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/setup-cancel")=localize("strings.cancel")
+                        a.btn.btn-sm.btn-outline-secondary.mr-2(href="/")=localize("strings.cancel")
                         button.btn.btn-sm.btn-success(type="submit")=localize("strings.continue")
               else if setup < 1
                 div.inactive: span=localize("setup.application.title")
@@ -236,11 +236,7 @@ html
                   span=localize("setup.confirmation.title")
                   div
                     +form("post", "/setup")
-                      table.table.table-sm
-                        thead
-                          tr
-                            th
-                            th
+                      table.table.table-sm.info
                         tbody
                           tr
                             td=localize("setup.application.locale.title")

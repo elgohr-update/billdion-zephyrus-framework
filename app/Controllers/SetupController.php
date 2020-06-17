@@ -1,6 +1,6 @@
 <?php namespace Controllers;
 
-use Models\ComposerPackage;
+use Models\Utilities\ComposerPackage;
 use Zephyrus\Application\Configuration;
 use Zephyrus\Application\Session;
 use Zephyrus\Network\Response;

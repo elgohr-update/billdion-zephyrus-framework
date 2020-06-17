@@ -7,6 +7,7 @@ use Zephyrus\Network\Response;
 use Zephyrus\Security\Authorization;
 use Zephyrus\Security\ContentSecurityPolicy;
 use Zephyrus\Security\Controller as ZephyrusBaseController;
+use Zephyrus\Security\CrossOriginResourcePolicy;
 
 /**
  * This controller class acts as a security middleware for the application. All controllers should inherit this
@@ -34,6 +35,12 @@ abstract class SecurityController extends ZephyrusBaseController
     {
         $this->applyContentSecurityPolicies();
         $this->setupAuthorizations();
+
+        /**
+         * Uncomment to sent basic CORS header (Access-Control-Allow-Origin: *) to allow any domains for cross origin
+         * resource sharing. Edit method for more refined properties using the CrossOriginResourcePolicy class.
+         */
+        //$this->applyCrossOriginResourceSharing();
 
         /**
          * May throw an UnauthorizedAccessException, InvalidCsrfException or IntrusionDetectionException. Exception can
@@ -164,5 +171,16 @@ abstract class SecurityController extends ZephyrusBaseController
          * from.
          */
         parent::getSecureHeader()->setContentSecurityPolicy($csp);
+    }
+
+    /**
+     * Defines the Access-Control-Allow-* headers to use for all inherited controllers. The CrossOriginResourcePolicy
+     * class helps craft and maintain the CORS headers easily.
+     */
+    private function applyCrossOriginResourceSharing()
+    {
+        $cors = new CrossOriginResourcePolicy();
+        $cors->setAccessControlAllowOrigin('*');
+        parent::getSecureHeader()->setCrossOriginResourcePolicy($cors);
     }
 }

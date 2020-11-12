@@ -42,6 +42,8 @@ try {
 }
 // endregion
 
+//setupErrorHandling();
+
 /**
  * Defines how to handle errors and exceptions which reached the main
  * thread (that nobody trapped). These are usage example and should be
@@ -78,12 +80,5 @@ function setupErrorHandling()
      * contains the requested URL and http method.
      */
     $errorHandler->exception(function (RouteNotFoundException $e) {
-        $instance->abortNotFound();
     });
-
-    // Its recommended to catch these exceptions in security middleware.
-    //$errorHandler->exception(function(UnauthorizedAccessException $e) {
-    //});
-    //$errorHandler->exception(function (InvalidCsrfException $e) {
-    //});
 }

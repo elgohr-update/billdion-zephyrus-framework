@@ -21,11 +21,10 @@ abstract class Controller extends SecurityController
      * @param array $args
      * @return Response
      */
-    protected function render($page, $args = []): Response
+    public function render($page, $args = []): Response
     {
         return parent::render($page, array_merge($args, [
-            'system_date' => date(FORMAT_DATE_TIME),
-            'zephyrus_version' => '1.0.0'
+            'system_date' => date(FORMAT_DATE_TIME)
         ]));
     }
 

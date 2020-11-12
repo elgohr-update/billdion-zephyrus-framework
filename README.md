@@ -56,6 +56,14 @@ $ git clone https://github.com/dadajuice/zephyrus-framework.git
 $ composer install  
 ```
 
+### Option 4 : Installation depuis Docker avec docker-compose (béta)
+Il faut cependant installer préalablement docker pour être en mesure d'utiliser cet option. Pour plus de détails: [Docker](https://docs.docker.com/get-docker/)
+
+```
+$ composer install
+$ docker-compose up
+```
+
 # Utilisation
 
 #### Exemple 1 : Obtenir une liste et un détail depuis la base de données (simple)

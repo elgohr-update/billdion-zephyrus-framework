@@ -47,5 +47,7 @@ RUN a2enmod rewrite headers expires
 RUN locale-gen --no-archive fr_CA.UTF-8 \
     locale -a
 
+RUN chown -R ubuntu:ubuntu /locale
+RUN chmod -R 700 /locale
 
 RUN composer install

@@ -1,8 +1,8 @@
 FROM php:7.4.2-apache-buster
 
 COPY ./ /var/www/html
-COPY ./docker/config/php/php.ini /usr/local/etc/php/php.ini
-COPY ./docker/config/vhosts /etc/apache2/sites-enabled
+COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+COPY ./docker/vhosts /etc/apache2/sites-enabled
 
 
 ARG DEBIAN_FRONTEND=noninteractive
